@@ -1,12 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Sparkles } from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,11 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    setIsOpen(false);
+    setServicesOpen(false);
+  }, [location]);
 
   const highDemandServices = [
     { name: 'Digital Transformation', path: '/services/digital-transformation' },
@@ -28,6 +34,8 @@ const Navigation = () => {
     { name: 'Social Media Management', path: '/services/social-media' },
     { name: 'Content Marketing', path: '/services/content-marketing' },
   ];
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
@@ -51,9 +59,16 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-10">
-            <Link to="/" className="text-white hover:text-blue-400 transition-all duration-300 font-medium relative group">
+            <Link 
+              to="/" 
+              className={`transition-all duration-300 font-medium relative group ${
+                isActive('/') ? 'text-blue-400' : 'text-white hover:text-blue-400'
+              }`}
+            >
               Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300"></span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 transition-all duration-300 ${
+                isActive('/') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></span>
             </Link>
             
             {/* Enhanced Services Dropdown */}
@@ -62,10 +77,14 @@ const Navigation = () => {
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
             >
-              <button className="text-white hover:text-blue-400 transition-all duration-300 flex items-center space-x-1 font-medium relative group">
+              <button className={`transition-all duration-300 flex items-center space-x-1 font-medium relative group ${
+                location.pathname.startsWith('/services') ? 'text-blue-400' : 'text-white hover:text-blue-400'
+              }`}>
                 <span>Services</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300"></span>
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 transition-all duration-300 ${
+                  location.pathname.startsWith('/services') ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}></span>
               </button>
               
               {servicesOpen && (
@@ -80,7 +99,11 @@ const Navigation = () => {
                         <Link
                           key={service.path}
                           to={service.path}
-                          className="block px-4 py-3 text-sm text-gray-700 hover:text-blue-600 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 rounded-lg transition-all duration-300 font-medium"
+                          className={`block px-4 py-3 text-sm font-medium rounded-lg transition-all duration-300 ${
+                            isActive(service.path)
+                              ? 'text-blue-600 bg-gradient-to-r from-blue-50 to-purple-50'
+                              : 'text-gray-700 hover:text-blue-600 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50'
+                          }`}
                         >
                           {service.name}
                         </Link>
@@ -95,7 +118,11 @@ const Navigation = () => {
                         <Link
                           key={service.path}
                           to={service.path}
-                          className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 rounded-lg transition-all duration-300 font-medium"
+                          className={`block px-4 py-3 text-sm font-medium rounded-lg transition-all duration-300 ${
+                            isActive(service.path)
+                              ? 'text-purple-600 bg-gradient-to-r from-purple-50 to-pink-50'
+                              : 'text-gray-700 hover:text-purple-600 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50'
+                          }`}
                         >
                           {service.name}
                         </Link>
@@ -106,20 +133,37 @@ const Navigation = () => {
               )}
             </div>
 
-            <Link to="/about" className="text-white hover:text-blue-400 transition-all duration-300 font-medium relative group">
+            <Link 
+              to="/about" 
+              className={`transition-all duration-300 font-medium relative group ${
+                isActive('/about') ? 'text-blue-400' : 'text-white hover:text-blue-400'
+              }`}
+            >
               About
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300"></span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 transition-all duration-300 ${
+                isActive('/about') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></span>
             </Link>
-            <Link to="/contact" className="text-white hover:text-blue-400 transition-all duration-300 font-medium relative group">
+            <Link 
+              to="/contact" 
+              className={`transition-all duration-300 font-medium relative group ${
+                isActive('/contact') ? 'text-blue-400' : 'text-white hover:text-blue-400'
+              }`}
+            >
               Contact
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300"></span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 transition-all duration-300 ${
+                isActive('/contact') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></span>
             </Link>
             
             {/* Enhanced CTA Button */}
-            <button className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 hover:from-blue-500 hover:via-blue-600 hover:to-cyan-500 text-white px-8 py-3 rounded-xl transition-all duration-500 font-bold shadow-lg hover:shadow-blue-500/30 transform hover:scale-105 overflow-hidden group">
+            <Link 
+              to="/contact"
+              className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 hover:from-blue-500 hover:via-blue-600 hover:to-cyan-500 text-white px-8 py-3 rounded-xl transition-all duration-500 font-bold shadow-lg hover:shadow-blue-500/30 transform hover:scale-105 overflow-hidden group"
+            >
               <span className="relative z-10">Get Started</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -135,9 +179,16 @@ const Navigation = () => {
 
         {/* Enhanced Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden bg-black/95 backdrop-blur-xl border-t border-blue-900/20 rounded-b-2xl">
+          <div className="md:hidden bg-black/95 backdrop-blur-xl border-t border-blue-900/20 rounded-b-2xl animate-fade-in">
             <div className="px-4 pt-4 pb-6 space-y-3">
-              <Link to="/" className="block px-4 py-3 text-white hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition-all duration-300 font-medium">
+              <Link 
+                to="/" 
+                className={`block px-4 py-3 rounded-lg transition-all duration-300 font-medium ${
+                  isActive('/') 
+                    ? 'text-blue-400 bg-blue-500/10' 
+                    : 'text-white hover:text-blue-400 hover:bg-blue-500/10'
+                }`}
+              >
                 Home
               </Link>
               <div className="px-4 py-3">
@@ -149,7 +200,11 @@ const Navigation = () => {
                   <Link
                     key={service.path}
                     to={service.path}
-                    className="block px-4 py-2 text-gray-300 hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition-all duration-300 text-sm font-medium"
+                    className={`block px-4 py-2 rounded-lg transition-all duration-300 text-sm font-medium ${
+                      isActive(service.path)
+                        ? 'text-blue-400 bg-blue-500/10'
+                        : 'text-gray-300 hover:text-blue-400 hover:bg-blue-500/10'
+                    }`}
                   >
                     {service.name}
                   </Link>
@@ -164,21 +219,42 @@ const Navigation = () => {
                   <Link
                     key={service.path}
                     to={service.path}
-                    className="block px-4 py-2 text-gray-300 hover:text-purple-400 hover:bg-purple-500/10 rounded-lg transition-all duration-300 text-sm font-medium"
+                    className={`block px-4 py-2 rounded-lg transition-all duration-300 text-sm font-medium ${
+                      isActive(service.path)
+                        ? 'text-purple-400 bg-purple-500/10'
+                        : 'text-gray-300 hover:text-purple-400 hover:bg-purple-500/10'
+                    }`}
                   >
                     {service.name}
                   </Link>
                 ))}
               </div>
-              <Link to="/about" className="block px-4 py-3 text-white hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition-all duration-300 font-medium">
+              <Link 
+                to="/about" 
+                className={`block px-4 py-3 rounded-lg transition-all duration-300 font-medium ${
+                  isActive('/about') 
+                    ? 'text-blue-400 bg-blue-500/10' 
+                    : 'text-white hover:text-blue-400 hover:bg-blue-500/10'
+                }`}
+              >
                 About
               </Link>
-              <Link to="/contact" className="block px-4 py-3 text-white hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition-all duration-300 font-medium">
+              <Link 
+                to="/contact" 
+                className={`block px-4 py-3 rounded-lg transition-all duration-300 font-medium ${
+                  isActive('/contact') 
+                    ? 'text-blue-400 bg-blue-500/10' 
+                    : 'text-white hover:text-blue-400 hover:bg-blue-500/10'
+                }`}
+              >
                 Contact
               </Link>
-              <button className="w-full text-left bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white px-4 py-3 rounded-lg transition-all duration-300 mt-4 font-bold">
+              <Link 
+                to="/contact"
+                className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white px-4 py-3 rounded-lg transition-all duration-300 mt-4 font-bold"
+              >
                 Get Started
-              </button>
+              </Link>
             </div>
           </div>
         )}
