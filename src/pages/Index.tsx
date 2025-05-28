@@ -6,7 +6,6 @@ import ServicesSection from '../components/ServicesSection';
 import TestimonialsSlider from '../components/TestimonialsSlider';
 import LeadCapture from '../components/LeadCapture';
 import Footer from '../components/Footer';
-import AIChat from '../components/AIChat';
 
 const Index = () => {
   return (
@@ -17,7 +16,6 @@ const Index = () => {
       <TestimonialsSlider />
       <LeadCapture />
       <Footer />
-      <AIChat />
     </div>
   );
 };
