@@ -80,6 +80,7 @@ const Navigation = () => {
             
             <NavLink 
               to="/contact"
+              isActive={isActive('/contact')}
               className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 hover:from-blue-500 hover:via-blue-600 hover:to-cyan-500 text-white px-8 py-3 rounded-xl transition-all duration-500 font-bold shadow-lg hover:shadow-blue-500/30 transform hover:scale-105 overflow-hidden group"
             >
               <span className="relative z-10">Get Started</span>
