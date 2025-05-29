@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -15,12 +14,14 @@ import QualityEngineering from "./pages/services/QualityEngineering";
 import DigitalMarketing from "./pages/services/DigitalMarketing";
 import SocialMedia from "./pages/services/SocialMedia";
 import ContentMarketing from "./pages/services/ContentMarketing";
+import CustomCursor from "./components/CustomCursor";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <CustomCursor />
       <Toaster />
       <Sonner />
       <BrowserRouter>
@@ -35,7 +36,6 @@ const App = () => (
           <Route path="/services/digital-marketing" element={<DigitalMarketing />} />
           <Route path="/services/social-media" element={<SocialMedia />} />
           <Route path="/services/content-marketing" element={<ContentMarketing />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
