@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles } from 'lucide-react';
 
 const Logo = () => {
   return (
-    <Link to="/" className="flex items-center space-x-3 group">
+    <Link to="/" className="flex items-center space-x-3 group animate-fade-in">
       <div className="relative w-12 h-12 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 border border-blue-400/50 transform-gpu perspective-1000">
         <span className="text-white font-bold text-xl relative z-10">N</span>
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 rounded-xl"></div>

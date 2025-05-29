@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -14,7 +13,7 @@ const NavLink = ({ to, isActive, children, className = '' }: NavLinkProps) => {
     <Link 
       to={to}
       className={`
-        transition-all duration-500 font-medium relative group transform-gpu
+        transition-all duration-500 font-medium relative group transform-gpu animate-fade-in
         ${isActive ? 'text-blue-400' : 'text-white hover:text-blue-400'}
         ${className}
       `}

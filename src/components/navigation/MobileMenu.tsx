@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -35,7 +34,7 @@ const MobileMenu = ({ isOpen, isActive, onClose }: MobileMenuProps) => {
         <Link 
           to="/" 
           onClick={onClose}
-          className={`block px-4 py-3 rounded-lg transition-all duration-300 font-medium transform hover:scale-105 ${
+          className={`block px-4 py-3 rounded-lg transition-all duration-300 font-medium transform hover:scale-105 animate-fade-in ${
             isActive('/') 
               ? 'text-blue-400 bg-blue-500/10' 
               : 'text-white hover:text-blue-400 hover:bg-blue-500/10'
@@ -114,7 +113,7 @@ const MobileMenu = ({ isOpen, isActive, onClose }: MobileMenuProps) => {
         
         <button 
           onClick={handleGetStartedClick}
-          className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white px-4 py-3 rounded-lg transition-all duration-500 mt-4 font-bold transform hover:scale-105 shadow-lg hover:shadow-blue-500/30"
+          className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white px-4 py-3 rounded-lg transition-all duration-500 mt-4 font-bold transform hover:scale-105 shadow-lg hover:shadow-blue-500/30 animate-fade-in"
         >
           Get Started
         </button>

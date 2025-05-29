@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
@@ -28,7 +27,7 @@ const ServicesDropdown = ({ servicesOpen, setServicesOpen, onServiceClick }: Ser
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="relative group">
+    <div className="relative group animate-fade-in">
       <button 
         className={`transition-all duration-500 flex items-center space-x-1 font-medium relative transform-gpu ${
           location.pathname.startsWith('/services') ? 'text-blue-400' : 'text-white hover:text-blue-400'
