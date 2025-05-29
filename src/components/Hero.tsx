@@ -28,12 +28,14 @@ const Hero = () => {
         <div className="absolute top-2/3 left-1/5 w-1.5 h-1.5 bg-blue-500/50 rounded-full animate-float delay-900"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* Added more top padding to create gap from navigation */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 pt-40">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content with enhanced animations */}
           <div className={`text-white space-y-8 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
             <div className="space-y-6">
-              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border border-blue-500/30 rounded-full text-blue-200 text-sm font-medium backdrop-blur-sm animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              {/* Added more top margin to create better spacing */}
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border border-blue-500/30 rounded-full text-blue-200 text-sm font-medium backdrop-blur-sm animate-fade-in mt-8" style={{ animationDelay: '0.2s' }}>
                 <Sparkles className="w-4 h-4 mr-2 animate-pulse" />
                 Powering Digital Excellence Since 2024
               </div>

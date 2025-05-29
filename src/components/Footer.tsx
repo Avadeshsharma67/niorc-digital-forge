@@ -8,7 +8,8 @@ import {
   Linkedin, 
   Twitter, 
   Instagram, 
-  Youtube 
+  Youtube,
+  MessageCircle
 } from 'lucide-react';
 
 const Footer = () => {
@@ -59,15 +60,21 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-blue-400" />
-                <span className="text-gray-300">hello@niorc.com</span>
+                <div className="flex flex-col">
+                  <span className="text-gray-300">hello@niorc.in.net</span>
+                  <span className="text-gray-400 text-sm">founder@niorc.in.net</span>
+                </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-blue-400" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <div className="flex flex-col">
+                  <span className="text-gray-300">+91 6367987334</span>
+                  <span className="text-gray-400 text-sm">+91 9711552768</span>
+                </div>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-blue-400" />
-                <span className="text-gray-300">San Francisco, CA</span>
+                <span className="text-gray-300">New Delhi, India</span>
               </div>
             </div>
           </div>
@@ -126,6 +133,15 @@ const Footer = () => {
             <div>
               <h4 className="text-sm font-semibold mb-4 text-gray-400">Follow Us</h4>
               <div className="flex space-x-4">
+                <a 
+                  href="https://discord.gg/QFzNbDSmtH" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 hover:bg-purple-600 rounded-lg flex items-center justify-center transition-colors group"
+                  title="Join our Discord Community"
+                >
+                  <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                </a>
                 <a 
                   href="#" 
                   className="w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors"

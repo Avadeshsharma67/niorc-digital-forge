@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronDown, Sparkles, MessageCircle } from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,7 +63,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden md:flex items-center space-x-8">
             <Link 
               to="/" 
               className={`transition-all duration-300 font-medium relative group ${
@@ -166,6 +166,18 @@ const Navigation = () => {
                 isActive('/contact') ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></span>
             </Link>
+
+            {/* Discord Community Link */}
+            <a 
+              href="https://discord.gg/QFzNbDSmtH"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-purple-400 transition-colors font-medium flex items-center space-x-2 group"
+              title="Join our Discord Community"
+            >
+              <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              <span className="hidden lg:block">Community</span>
+            </a>
             
             <Link 
               to="/contact"
@@ -264,6 +276,16 @@ const Navigation = () => {
               >
                 Contact
               </Link>
+              <a 
+                href="https://discord.gg/QFzNbDSmtH"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="block px-4 py-3 rounded-lg transition-all duration-300 font-medium text-white hover:text-purple-400 hover:bg-purple-500/10 flex items-center space-x-2"
+              >
+                <MessageCircle className="w-5 h-5" />
+                <span>Discord Community</span>
+              </a>
               <Link 
                 to="/contact"
                 onClick={() => setIsOpen(false)}
