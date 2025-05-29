@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MessageCircle } from 'lucide-react';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -22,6 +21,11 @@ const MobileMenu = ({ isOpen, isActive, onClose }: MobileMenuProps) => {
     { name: 'Social Media Management', path: '/services/social-media' },
     { name: 'Content Marketing', path: '/services/content-marketing' },
   ];
+
+  const handleGetStartedClick = () => {
+    window.location.href = '/contact';
+    onClose();
+  };
 
   if (!isOpen) return null;
 
@@ -108,24 +112,12 @@ const MobileMenu = ({ isOpen, isActive, onClose }: MobileMenuProps) => {
           Contact
         </Link>
         
-        <a 
-          href="https://discord.gg/QFzNbDSmtH"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={onClose}
-          className="block px-4 py-3 rounded-lg transition-all duration-300 font-medium text-white hover:text-purple-400 hover:bg-purple-500/10 flex items-center space-x-2 transform hover:scale-105"
-        >
-          <MessageCircle className="w-5 h-5" />
-          <span>Discord Community</span>
-        </a>
-        
-        <Link 
-          to="/contact"
-          onClick={onClose}
+        <button 
+          onClick={handleGetStartedClick}
           className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white px-4 py-3 rounded-lg transition-all duration-500 mt-4 font-bold transform hover:scale-105 shadow-lg hover:shadow-blue-500/30"
         >
           Get Started
-        </Link>
+        </button>
       </div>
     </div>
   );

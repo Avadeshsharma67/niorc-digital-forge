@@ -85,6 +85,11 @@ const ServicesSection = () => {
     }
   ];
 
+  const handleBookDemo = (serviceName: string) => {
+    // Navigate to contact page with service pre-selected
+    window.location.href = `/contact?service=${encodeURIComponent(serviceName)}`;
+  };
+
   const ServiceCard = ({ service, index }) => (
     <div 
       className="group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-6 border border-gray-100 overflow-hidden animate-fade-in"
@@ -137,7 +142,10 @@ const ServicesSection = () => {
             <span className="relative z-10">Learn More</span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
           </Link>
-          <button className="w-full border-2 border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 text-gray-700 hover:text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-500 flex items-center justify-center group/btn relative overflow-hidden">
+          <button 
+            onClick={() => handleBookDemo(service.title)}
+            className="w-full border-2 border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 text-gray-700 hover:text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-500 flex items-center justify-center group/btn relative overflow-hidden"
+          >
             <span className="relative z-10">Book Demo</span>
             <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-2 transition-transform duration-300 relative z-10" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
@@ -151,8 +159,8 @@ const ServicesSection = () => {
     <section className="py-24 bg-gradient-to-br from-gray-50 via-blue-50/30 to-gray-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-300/30 to-purple-300/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-pink-300/30 to-orange-300/30 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-300/30 to-purple-300/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-pink-300/30 to-orange-300/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
