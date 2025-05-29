@@ -8,7 +8,7 @@ const LeadCapture = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
 
@@ -39,19 +39,19 @@ const LeadCapture = () => {
               <form onSubmit={handleSubmit} className="max-w-md mx-auto">
                 <div className="flex flex-col sm:flex-row gap-4">
                   <div className="flex-1 relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 pointer-events-none" />
                     <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email address"
-                      className="w-full pl-10 pr-4 py-4 rounded-lg border-0 focus:outline-none focus:ring-4 focus:ring-blue-300/50 text-gray-900"
+                      className="w-full pl-10 pr-4 py-4 rounded-lg border-0 focus:outline-none focus:ring-4 focus:ring-blue-300/50 text-gray-900 cursor-text"
                       required
                     />
                   </div>
                   <button
                     type="submit"
-                    className="bg-white hover:bg-gray-100 text-blue-700 font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center transform hover:scale-105 shadow-lg"
+                    className="bg-white hover:bg-gray-100 text-blue-700 font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center transform hover:scale-105 shadow-lg cursor-pointer"
                   >
                     Get Started
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -82,7 +82,10 @@ const LeadCapture = () => {
                 <p className="text-blue-200 text-sm mb-4">
                   Get a 30-minute strategy session with our experts
                 </p>
-                <button className="text-white font-semibold hover:text-blue-200 transition-colors">
+                <button 
+                  onClick={() => window.location.href = '/contact'}
+                  className="text-white font-semibold hover:text-blue-200 transition-colors cursor-pointer"
+                >
                   Schedule Now →
                 </button>
               </div>
@@ -92,7 +95,10 @@ const LeadCapture = () => {
                 <p className="text-blue-200 text-sm mb-4">
                   See our solutions in action with a live demo
                 </p>
-                <button className="text-white font-semibold hover:text-blue-200 transition-colors">
+                <button 
+                  onClick={() => window.location.href = '/contact'}
+                  className="text-white font-semibold hover:text-blue-200 transition-colors cursor-pointer"
+                >
                   Watch Demo →
                 </button>
               </div>
@@ -102,7 +108,10 @@ const LeadCapture = () => {
                 <p className="text-blue-200 text-sm mb-4">
                   Get pricing tailored to your specific needs
                 </p>
-                <button className="text-white font-semibold hover:text-blue-200 transition-colors">
+                <button 
+                  onClick={() => window.location.href = '/contact'}
+                  className="text-white font-semibold hover:text-blue-200 transition-colors cursor-pointer"
+                >
                   Get Quote →
                 </button>
               </div>

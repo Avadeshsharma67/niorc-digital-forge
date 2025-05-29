@@ -42,6 +42,27 @@
   color: #888;
 }
 
+/* Cursor styles to match reference website */
+button {
+  cursor: pointer;
+}
+
+input, textarea, select {
+  cursor: text;
+}
+
+a {
+  cursor: pointer;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.cursor-text {
+  cursor: text !important;
+}
+
 /* Enhanced link animation */
 .animated-link {
   position: relative;

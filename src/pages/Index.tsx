@@ -7,10 +7,10 @@ import AboutSection from '../components/AboutSection';
 import ProcessSection from '../components/ProcessSection';
 import CaseStudiesSection from '../components/CaseStudiesSection';
 import TestimonialsSlider from '../components/TestimonialsSlider';
-import PartnersSection from '../components/PartnersSection';
 import CtaSection from '../components/CtaSection';
 import LeadCapture from '../components/LeadCapture';
 import Footer from '../components/Footer';
+import AIChat from '../components/AIChat';
 
 const Index = () => {
   return (
@@ -33,13 +33,13 @@ const Index = () => {
       
       <TestimonialsSlider />
       
-      <PartnersSection />
-      
       <CtaSection />
       
       <LeadCapture />
       
       <Footer />
+      
+      <AIChat />
     </div>
   );
 };

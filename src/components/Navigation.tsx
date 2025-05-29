@@ -73,7 +73,7 @@ const Navigation = () => {
             
             <button
               onClick={handleGetStartedClick}
-              className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 hover:from-blue-500 hover:via-blue-600 hover:to-cyan-500 text-white px-8 py-3 rounded-xl transition-all duration-500 font-bold shadow-lg hover:shadow-blue-500/30 transform hover:scale-105 overflow-hidden group"
+              className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 hover:from-blue-500 hover:via-blue-600 hover:to-cyan-500 text-white px-8 py-3 rounded-xl transition-all duration-500 font-bold shadow-lg hover:shadow-blue-500/30 transform hover:scale-105 overflow-hidden group cursor-pointer"
             >
               <span className="relative z-10">Get Started</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
@@ -84,7 +84,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={handleMobileMenuToggle}
-              className="text-white hover:text-blue-400 transition-all duration-300 p-2 transform hover:scale-110"
+              className="text-white hover:text-blue-400 transition-all duration-300 p-2 transform hover:scale-110 cursor-pointer"
             >
               {isOpen ? 
                 <X className="w-6 h-6 animate-spin" /> : 
