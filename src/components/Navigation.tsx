@@ -6,6 +6,7 @@ import Logo from './navigation/Logo';
 import NavLink from './navigation/NavLink';
 import ServicesDropdown from './navigation/ServicesDropdown';
 import MobileMenu from './navigation/MobileMenu';
+import Button3D from './3d/Button3D';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -71,26 +72,24 @@ const Navigation = () => {
               Contact
             </NavLink>
             
-            <button
-              onClick={handleGetStartedClick}
-              className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 hover:from-blue-500 hover:via-blue-600 hover:to-cyan-500 text-white px-8 py-3 rounded-xl transition-all duration-500 font-bold shadow-lg hover:shadow-blue-500/30 transform hover:scale-105 overflow-hidden group"
-            >
-              <span className="relative z-10">Get Started</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-            </button>
+            <Button3D onClick={handleGetStartedClick} variant="primary" size="default">
+              Get Started
+            </Button3D>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button
+            <Button3D 
               onClick={handleMobileMenuToggle}
-              className="text-white hover:text-blue-400 transition-all duration-300 p-2 transform hover:scale-110"
+              variant="ghost"
+              size="sm"
+              className="p-2"
             >
               {isOpen ? 
                 <X className="w-6 h-6 animate-spin" /> : 
                 <Menu className="w-6 h-6 hover:rotate-90 transition-transform duration-300" />
               }
-            </button>
+            </Button3D>
           </div>
         </div>
 
