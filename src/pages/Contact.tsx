@@ -1,55 +1,36 @@
-
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, CheckCircle, AlertCircle } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { supabase } from '../integrations/supabase/client';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: ''
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [submitMessage, setSubmitMessage] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
-    
+
     try {
-      console.log('Submitting contact form:', formData);
-      
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData
+      const form = e.currentTarget;
+      const response = await fetch('https://formspree.io/f/xnnvajbw', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
       });
 
-      if (error) {
-        console.error('Supabase function error:', error);
-        throw error;
+      if (response.ok) {
+        setSubmitStatus('success');
+        setSubmitMessage('Thank you for your message! We\'ll get back to you within 24 hours.');
+        form.reset();
+      } else {
+        throw new Error('Form submission failed');
       }
-
-      console.log('Email sent successfully:', data);
-      setSubmitStatus('success');
-      setSubmitMessage('Thank you for your message! We\'ll get back to you within 24 hours.');
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        message: ''
-      });
-
-    } catch (error: any) {
+    } catch (error) {
       console.error('Contact form submission error:', error);
       setSubmitStatus('error');
       setSubmitMessage('There was an error sending your message. Please try again or contact us directly.');
@@ -142,8 +123,6 @@ const Contact = () => {
                     <input
                       type="text"
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                       required
                       disabled={isSubmitting}
@@ -156,8 +135,6 @@ const Contact = () => {
                     <input
                       type="email"
                       name="email"
-                      value={formData.email}
-                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                       required
                       disabled={isSubmitting}
@@ -170,8 +147,6 @@ const Contact = () => {
                   <input
                     type="text"
                     name="company"
-                    value={formData.company}
-                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                     disabled={isSubmitting}
                   />
@@ -183,8 +158,6 @@ const Contact = () => {
                   </label>
                   <textarea
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
                     rows={6}
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none transition-all duration-300"
                     placeholder="Tell us about your project requirements, goals, and how we can help you achieve them..."
