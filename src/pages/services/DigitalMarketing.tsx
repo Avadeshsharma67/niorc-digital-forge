@@ -1,11 +1,22 @@
 
 import React from 'react';
 import { TrendingUp, Target, BarChart3, Megaphone } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import LeadCapture from '../../components/LeadCapture';
 
 const DigitalMarketing = () => {
+  const navigate = useNavigate();
+
+  const handleBoostGrowthClick = () => {
+    navigate('/contact');
+  };
+
+  const handleMarketingAuditClick = () => {
+    navigate('/contact');
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -30,10 +41,16 @@ const DigitalMarketing = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                <button 
+                  onClick={handleBoostGrowthClick}
+                  className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+                >
                   Boost Your Growth
                 </button>
-                <button className="border-2 border-white/20 hover:border-cyan-400 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                <button 
+                  onClick={handleMarketingAuditClick}
+                  className="border-2 border-white/20 hover:border-cyan-400 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+                >
                   Marketing Audit
                 </button>
               </div>

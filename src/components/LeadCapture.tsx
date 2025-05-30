@@ -1,25 +1,69 @@
 
 import React, { useState } from 'react';
 import { Mail, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const LeadCapture = () => {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!email || !name) return;
 
-    // Simulate form submission
-    setTimeout(() => {
+    setIsSubmitting(true);
+    
+    try {
+      console.log('Submitting newsletter signup:', { name, email });
+      
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name,
+          email,
+          company: '',
+          message: `Newsletter signup from ${name}. Please add to mailing list.`
+        }
+      });
+
+      if (error) {
+        console.error('Newsletter signup error:', error);
+        throw error;
+      }
+
+      console.log('Newsletter signup successful:', data);
       setIsSubmitted(true);
       toast({
         title: "Success!",
         description: "Thank you for subscribing to our newsletter. We'll be in touch soon!",
       });
-    }, 500);
+    } catch (error: any) {
+      console.error('Newsletter signup submission error:', error);
+      toast({
+        title: "Error",
+        description: "There was an error with your subscription. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleConsultationClick = () => {
+    navigate('/contact');
+  };
+
+  const handleDemoClick = () => {
+    navigate('/contact');
+  };
+
+  const handleQuoteClick = () => {
+    navigate('/contact');
   };
 
   return (
@@ -37,25 +81,49 @@ const LeadCapture = () => {
 
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="flex-1 relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <div className="flex flex-col gap-4 mb-4">
+                  <div className="relative">
                     <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email address"
-                      className="w-full pl-10 pr-4 py-4 rounded-lg border-0 focus:outline-none focus:ring-4 focus:ring-blue-300/50 text-gray-900"
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Enter your full name"
+                      className="w-full px-4 py-4 rounded-lg border-0 focus:outline-none focus:ring-4 focus:ring-blue-300/50 text-gray-900"
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
-                  <button
-                    type="submit"
-                    className="bg-white hover:bg-gray-100 text-blue-700 font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center transform hover:scale-105 shadow-lg"
-                  >
-                    Get Started
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </button>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex-1 relative">
+                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email address"
+                        className="w-full pl-10 pr-4 py-4 rounded-lg border-0 focus:outline-none focus:ring-4 focus:ring-blue-300/50 text-gray-900"
+                        required
+                        disabled={isSubmitting}
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="bg-white hover:bg-gray-100 disabled:bg-gray-300 text-blue-700 font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center transform hover:scale-105 disabled:transform-none shadow-lg disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="w-5 h-5 border-2 border-blue-700 border-t-transparent rounded-full animate-spin mr-2"></div>
+                          Subscribing...
+                        </>
+                      ) : (
+                        <>
+                          Get Started
+                          <ArrowRight className="ml-2 w-5 h-5" />
+                        </>
+                      )}
+                    </button>
+                  </div>
                 </div>
                 <p className="text-blue-200 text-sm mt-4">
                   No spam, unsubscribe at any time. We respect your privacy.
@@ -82,7 +150,10 @@ const LeadCapture = () => {
                 <p className="text-blue-200 text-sm mb-4">
                   Get a 30-minute strategy session with our experts
                 </p>
-                <button className="text-white font-semibold hover:text-blue-200 transition-colors">
+                <button 
+                  onClick={handleConsultationClick}
+                  className="text-white font-semibold hover:text-blue-200 transition-colors"
+                >
                   Schedule Now →
                 </button>
               </div>
@@ -92,7 +163,10 @@ const LeadCapture = () => {
                 <p className="text-blue-200 text-sm mb-4">
                   See our solutions in action with a live demo
                 </p>
-                <button className="text-white font-semibold hover:text-blue-200 transition-colors">
+                <button 
+                  onClick={handleDemoClick}
+                  className="text-white font-semibold hover:text-blue-200 transition-colors"
+                >
                   Watch Demo →
                 </button>
               </div>
@@ -102,7 +176,10 @@ const LeadCapture = () => {
                 <p className="text-blue-200 text-sm mb-4">
                   Get pricing tailored to your specific needs
                 </p>
-                <button className="text-white font-semibold hover:text-blue-200 transition-colors">
+                <button 
+                  onClick={handleQuoteClick}
+                  className="text-white font-semibold hover:text-blue-200 transition-colors"
+                >
                   Get Quote →
                 </button>
               </div>

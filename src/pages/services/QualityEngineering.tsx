@@ -1,11 +1,22 @@
 
 import React from 'react';
 import { TestTube, Shield, CheckCircle, Target } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import LeadCapture from '../../components/LeadCapture';
 
 const QualityEngineering = () => {
+  const navigate = useNavigate();
+
+  const handleImproveQualityClick = () => {
+    navigate('/contact');
+  };
+
+  const handleQualityAssessmentClick = () => {
+    navigate('/contact');
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -30,10 +41,16 @@ const QualityEngineering = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                <button 
+                  onClick={handleImproveQualityClick}
+                  className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+                >
                   Improve Your Quality
                 </button>
-                <button className="border-2 border-white/20 hover:border-orange-400 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                <button 
+                  onClick={handleQualityAssessmentClick}
+                  className="border-2 border-white/20 hover:border-orange-400 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+                >
                   Quality Assessment
                 </button>
               </div>

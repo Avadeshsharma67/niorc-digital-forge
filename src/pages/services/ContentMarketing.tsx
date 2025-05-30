@@ -1,11 +1,22 @@
 
 import React from 'react';
 import { FileText, Image, Edit, BarChart } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import LeadCapture from '../../components/LeadCapture';
 
 const ContentMarketing = () => {
+  const navigate = useNavigate();
+
+  const handleStartContentStrategyClick = () => {
+    navigate('/contact');
+  };
+
+  const handleContentAuditClick = () => {
+    navigate('/contact');
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -30,10 +41,16 @@ const ContentMarketing = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                <button 
+                  onClick={handleStartContentStrategyClick}
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+                >
                   Start Content Strategy
                 </button>
-                <button className="border-2 border-white/20 hover:border-indigo-400 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                <button 
+                  onClick={handleContentAuditClick}
+                  className="border-2 border-white/20 hover:border-indigo-400 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+                >
                   Content Audit
                 </button>
               </div>

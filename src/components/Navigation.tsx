@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import Logo from './navigation/Logo';
 import NavLink from './navigation/NavLink';
@@ -12,6 +12,7 @@ const Navigation = () => {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +39,7 @@ const Navigation = () => {
   };
 
   const handleGetStartedClick = () => {
-    window.location.href = '/contact';
+    navigate('/contact');
   };
 
   return (

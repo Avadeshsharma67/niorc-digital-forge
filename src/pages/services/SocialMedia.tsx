@@ -1,11 +1,22 @@
 
 import React from 'react';
 import { Share2, Users, Calendar, Heart } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import LeadCapture from '../../components/LeadCapture';
 
 const SocialMedia = () => {
+  const navigate = useNavigate();
+
+  const handleManageSocialMediaClick = () => {
+    navigate('/contact');
+  };
+
+  const handleSocialMediaAuditClick = () => {
+    navigate('/contact');
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -30,10 +41,16 @@ const SocialMedia = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                <button 
+                  onClick={handleManageSocialMediaClick}
+                  className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+                >
                   Manage My Social Media
                 </button>
-                <button className="border-2 border-white/20 hover:border-pink-400 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                <button 
+                  onClick={handleSocialMediaAuditClick}
+                  className="border-2 border-white/20 hover:border-pink-400 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+                >
                   Social Media Audit
                 </button>
               </div>

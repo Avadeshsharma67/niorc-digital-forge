@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -8,6 +9,8 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ isOpen, isActive, onClose }: MobileMenuProps) => {
+  const navigate = useNavigate();
+
   const highDemandServices = [
     { name: 'Digital Transformation', path: '/services/digital-transformation' },
     { name: 'Enterprise Mobility', path: '/services/enterprise-mobility' },
@@ -22,7 +25,7 @@ const MobileMenu = ({ isOpen, isActive, onClose }: MobileMenuProps) => {
   ];
 
   const handleGetStartedClick = () => {
-    window.location.href = '/contact';
+    navigate('/contact');
     onClose();
   };
 
