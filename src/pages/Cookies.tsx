@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { Cookie, Settings, BarChart, Shield, Toggle } from 'lucide-react';
+import { Cookie, Settings, BarChart, Shield } from 'lucide-react';
 
 const Cookies = () => {
   const [analyticsEnabled, setAnalyticsEnabled] = useState(true);
