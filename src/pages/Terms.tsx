@@ -2,6 +2,7 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import VisitorCounter from '../components/VisitorCounter';
 import { FileText, Scale, AlertTriangle, CheckCircle } from 'lucide-react';
 
 const Terms = () => {
@@ -138,6 +139,7 @@ const Terms = () => {
       </section>
 
       <Footer />
+      <VisitorCounter />
     </div>
   );
 };

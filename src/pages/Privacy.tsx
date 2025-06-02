@@ -2,6 +2,7 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import VisitorCounter from '../components/VisitorCounter';
 import { Shield, Eye, Database, UserCheck, Mail, Phone } from 'lucide-react';
 
 const Privacy = () => {
@@ -159,6 +160,7 @@ const Privacy = () => {
       </section>
 
       <Footer />
+      <VisitorCounter />
     </div>
   );
 };

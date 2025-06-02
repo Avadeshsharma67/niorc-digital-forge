@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import VisitorCounter from '../components/VisitorCounter';
 import { Cookie, Settings, BarChart, Shield } from 'lucide-react';
 
 const Cookies = () => {
@@ -177,6 +179,7 @@ const Cookies = () => {
       </section>
 
       <Footer />
+      <VisitorCounter />
     </div>
   );
 };

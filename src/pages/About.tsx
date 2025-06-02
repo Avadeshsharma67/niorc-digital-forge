@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { Users, Target, Award, Zap, Globe, Shield, Rocket, Heart } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import LeadCapture from '../components/LeadCapture';
+import VisitorCounter from '../components/VisitorCounter';
 
 const About = () => {
   const values = [
@@ -152,6 +152,7 @@ const About = () => {
 
       <LeadCapture />
       <Footer />
+      <VisitorCounter />
     </div>
   );
 };
