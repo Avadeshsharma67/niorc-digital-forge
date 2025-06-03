@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -13,7 +12,7 @@ interface SEOHeadProps {
 const SEOHead = ({ 
   title = "Niorc Consulting | Digital Transformation & AI Automation Services",
   description = "Transform your business with Niorc Consulting's premium digital services. Expert solutions in AI automation, digital transformation, enterprise technology, and innovative business consulting.",
-  keywords = "Niorc Consulting, digital transformation, AI automation, enterprise technology, business consulting, digital solutions",
+  keywords = "Niorc Consulting, digital transformation, AI automation, enterprise technology, business consulting, digital solutions, technology consulting, enterprise mobility, product engineering, quality engineering, digital marketing, India, Delhi",
   image = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&h=630&q=80",
   type = "website"
 }: SEOHeadProps) => {

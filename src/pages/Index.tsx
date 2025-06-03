@@ -16,9 +16,10 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white relative">
       <SEOHead 
-        title="Niorc Consulting | Premium Digital Transformation & AI Automation Services"
-        description="Niorc Consulting delivers premium digital transformation, AI automation, enterprise mobility, and product engineering services. Transform your business with expert technology consulting and innovative digital solutions for modern enterprises."
-        keywords="Niorc Consulting, digital transformation, AI automation, enterprise technology, business consulting, digital solutions, technology consulting, enterprise mobility, product engineering, quality engineering, digital marketing, India, Delhi"
+        title="Niorc Consulting | Leading Digital Transformation & AI Automation Services in India"
+        description="Transform your business with Niorc Consulting's premium digital transformation, AI automation, and enterprise technology solutions. Expert consulting services for modern enterprises in Delhi, India."
+        keywords="digital transformation Delhi, AI automation India, enterprise technology consulting, business digital solutions, technology consulting services Delhi, enterprise mobility solutions India, digital transformation company"
+        type="website"
       />
       <ParticleBackground />
       <MorphingBlobs />
