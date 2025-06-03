@@ -1,8 +1,9 @@
-
 import React from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import VisitorCounter from '../components/VisitorCounter';
+import SEOHead from '../components/SEOHead';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { FileText, Scale, AlertTriangle, CheckCircle } from 'lucide-react';
 
 const Terms = () => {
@@ -37,7 +38,13 @@ const Terms = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEOHead 
+        title="Terms of Service | Niorc Consulting Legal Agreement & Service Terms"
+        description="Read Niorc Consulting's Terms of Service including service agreements, user responsibilities, payment terms, intellectual property rights, and legal obligations for our digital transformation and technology consulting services."
+        keywords="Niorc Consulting terms of service, legal agreement, service terms, digital consulting contract, technology services agreement, intellectual property, payment terms"
+      />
       <Navigation />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-black via-gray-900 to-black">

@@ -4,6 +4,9 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import LeadCapture from '../components/LeadCapture';
 import VisitorCounter from '../components/VisitorCounter';
+import SEOHead from '../components/SEOHead';
+import Breadcrumbs from '../components/Breadcrumbs';
+import InternalLinks from '../components/InternalLinks';
 
 const About = () => {
   const values = [
@@ -67,7 +70,13 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead 
+        title="About Niorc Consulting | Digital Innovation Experts & Technology Consultants"
+        description="Learn about Niorc Consulting's mission to transform businesses through digital innovation. Discover our values, achievements, certifications, and commitment to delivering excellence in technology consulting and digital transformation services."
+        keywords="About Niorc Consulting, digital innovation experts, technology consultants, enterprise solutions, digital transformation company, AI automation specialists, business consulting firm"
+      />
       <Navigation />
+      <Breadcrumbs />
       
       {/* Hero Section with minimal spacing */}
       <section className="pt-24 pb-20 bg-gradient-to-br from-gray-900 via-blue-900 to-black">
@@ -150,6 +159,7 @@ const About = () => {
         </div>
       </section>
 
+      <InternalLinks currentPage="/about" />
       <LeadCapture />
       <Footer />
       <VisitorCounter />

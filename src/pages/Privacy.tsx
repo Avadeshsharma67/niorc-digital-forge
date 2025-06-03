@@ -1,8 +1,9 @@
-
 import React from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import VisitorCounter from '../components/VisitorCounter';
+import SEOHead from '../components/SEOHead';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { Shield, Eye, Database, UserCheck, Mail, Phone } from 'lucide-react';
 
 const Privacy = () => {
@@ -57,7 +58,13 @@ const Privacy = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEOHead 
+        title="Privacy Policy | Niorc Consulting Data Protection & Privacy Rights"
+        description="Niorc Consulting's Privacy Policy explains how we collect, use, and protect your personal information. Learn about your privacy rights, data security measures, and our commitment to protecting your information."
+        keywords="Niorc Consulting privacy policy, data protection, privacy rights, information security, GDPR compliance, data collection, personal information protection"
+      />
       <Navigation />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-black via-gray-900 to-black">
