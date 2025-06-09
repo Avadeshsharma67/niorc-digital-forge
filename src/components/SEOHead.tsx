@@ -11,30 +11,60 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({ 
-  title = "Niorc Consulting - Leading Digital Transformation & AI Automation Services",
-  description = "Transform your business with Niorc Consulting's premium digital services. Expert solutions in AI automation, digital transformation, enterprise technology, and innovative business consulting.",
-  keywords = "Niorc Consulting, digital transformation, AI automation, enterprise technology, business consulting, digital solutions, technology consulting, enterprise mobility, product engineering, quality engineering, digital marketing, India, Delhi",
+  title = "Niorc Consulting - Full-Stack Development & AI Integration Services",
+  description = "Complete digital solutions beyond design-only agencies. Strategic consulting + full-stack development + AI integration. Design + Development bundles, client project boards, and resale opportunities. Transform your business with end-to-end technology solutions.",
+  keywords = "Niorc Consulting, full-stack development, AI integration, strategic consulting, design development bundle, client project board, resale solutions, digital transformation, enterprise technology, consulting-first approach, custom development India, white-label solutions",
   image = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&h=630&q=80",
   type = "website"
 }: SEOHeadProps) => {
   const location = useLocation();
   const currentUrl = `https://niorc.in.net${location.pathname}`;
+  const siteName = "Niorc Consulting";
 
   useEffect(() => {
-    // Update title with consistent branding
-    document.title = title.includes('Niorc Consulting') ? title : `${title} | Niorc Consulting`;
+    // Enhanced title with consistent branding
+    const fullTitle = title.includes('Niorc Consulting') ? title : `${title} | ${siteName}`;
+    document.title = fullTitle;
 
     // Update meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', description);
+    const metaDescription = document.querySelector('meta[name="description"]') || 
+      document.createElement('meta');
+    metaDescription.setAttribute('name', 'description');
+    metaDescription.setAttribute('content', description);
+    if (!document.querySelector('meta[name="description"]')) {
+      document.head.appendChild(metaDescription);
     }
 
     // Update meta keywords
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', keywords);
+    const metaKeywords = document.querySelector('meta[name="keywords"]') || 
+      document.createElement('meta');
+    metaKeywords.setAttribute('name', 'keywords');
+    metaKeywords.setAttribute('content', keywords);
+    if (!document.querySelector('meta[name="keywords"]')) {
+      document.head.appendChild(metaKeywords);
     }
+
+    // Enhanced meta tags for better SEO
+    const metaTags = [
+      { name: 'author', content: 'Niorc Consulting' },
+      { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
+      { name: 'googlebot', content: 'index, follow' },
+      { name: 'bingbot', content: 'index, follow' },
+      { name: 'theme-color', content: '#2563eb' },
+      { name: 'application-name', content: siteName },
+      { name: 'apple-mobile-web-app-title', content: siteName },
+      { name: 'msapplication-TileColor', content: '#2563eb' }
+    ];
+
+    metaTags.forEach(({ name, content }) => {
+      let meta = document.querySelector(`meta[name="${name}"]`);
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('name', name);
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+    });
 
     // Update canonical URL
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -45,43 +75,98 @@ const SEOHead = ({
     }
     canonical.setAttribute('href', currentUrl);
 
-    // Update Open Graph tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', title.includes('Niorc Consulting') ? title : `${title} | Niorc Consulting`);
+    // Enhanced Open Graph tags
+    const ogTags = [
+      { property: 'og:title', content: fullTitle },
+      { property: 'og:description', content: description },
+      { property: 'og:url', content: currentUrl },
+      { property: 'og:image', content: image },
+      { property: 'og:type', content: type },
+      { property: 'og:site_name', content: siteName },
+      { property: 'og:locale', content: 'en_US' },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:image:alt', content: 'Niorc Consulting - Full-Stack Development Services' }
+    ];
 
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    if (ogDescription) ogDescription.setAttribute('content', description);
+    ogTags.forEach(({ property, content }) => {
+      let meta = document.querySelector(`meta[property="${property}"]`);
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+    });
 
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute('content', currentUrl);
+    // Enhanced Twitter Card tags
+    const twitterTags = [
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: fullTitle },
+      { name: 'twitter:description', content: description },
+      { name: 'twitter:image', content: image },
+      { name: 'twitter:site', content: '@niorcconsulting' },
+      { name: 'twitter:creator', content: '@niorcconsulting' }
+    ];
 
-    const ogImage = document.querySelector('meta[property="og:image"]');
-    if (ogImage) ogImage.setAttribute('content', image);
+    twitterTags.forEach(({ name, content }) => {
+      let meta = document.querySelector(`meta[name="${name}"]`);
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('name', name);
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+    });
 
-    const ogType = document.querySelector('meta[property="og:type"]');
-    if (ogType) ogType.setAttribute('content', type);
+    // Add structured data for organization
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": siteName,
+      "description": description,
+      "url": "https://niorc.in.net",
+      "logo": "https://niorc.in.net/favicon.ico",
+      "sameAs": [
+        "https://linkedin.com/company/niorc-consulting",
+        "https://twitter.com/niorcconsulting"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "info@niorc.in.net"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN",
+        "addressRegion": "Delhi"
+      },
+      "offers": [
+        {
+          "@type": "Service",
+          "name": "Full-Stack Development",
+          "description": "Complete end-to-end development services with AI integration"
+        },
+        {
+          "@type": "Service", 
+          "name": "Strategic Consulting",
+          "description": "Business analysis and technology strategy consulting"
+        },
+        {
+          "@type": "Service",
+          "name": "Design + Development Bundle",
+          "description": "Complete solution from UI/UX design to full-stack development"
+        }
+      ]
+    };
 
-    const ogSiteName = document.querySelector('meta[property="og:site_name"]');
-    if (ogSiteName) ogSiteName.setAttribute('content', 'Niorc Consulting');
-
-    // Update Twitter Card tags
-    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twitterTitle) twitterTitle.setAttribute('content', title.includes('Niorc Consulting') ? title : `${title} | Niorc Consulting`);
-
-    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-    if (twitterDescription) twitterDescription.setAttribute('content', description);
-
-    const twitterImage = document.querySelector('meta[name="twitter:image"]');
-    if (twitterImage) twitterImage.setAttribute('content', image);
-
-    // Add application name for better branding
-    let appName = document.querySelector('meta[name="application-name"]');
-    if (!appName) {
-      appName = document.createElement('meta');
-      appName.setAttribute('name', 'application-name');
-      document.head.appendChild(appName);
+    let jsonLd = document.querySelector('script[type="application/ld+json"]');
+    if (!jsonLd) {
+      jsonLd = document.createElement('script');
+      jsonLd.setAttribute('type', 'application/ld+json');
+      document.head.appendChild(jsonLd);
     }
-    appName.setAttribute('content', 'Niorc Consulting');
+    jsonLd.textContent = JSON.stringify(structuredData);
 
   }, [title, description, keywords, image, type, currentUrl]);
 

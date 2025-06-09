@@ -19,32 +19,49 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white relative">
       <SEOHead 
-        title="Niorc Consulting - Full-Stack Development & AI Integration Services | Strategic Consulting First"
-        description="Beyond design-only agencies. Complete full-stack solutions with AI integration, strategic consulting, and end-to-end development. Design + Development bundles, client project boards, and resale opportunities."
-        keywords="Niorc Consulting, full-stack development India, AI integration services, strategic consulting, design development bundle, client project board, white-label solutions, consulting-first approach, enterprise technology Delhi"
+        title="Niorc Consulting - Full-Stack Development & AI Integration Services"
+        description="Transform your business with complete full-stack solutions. Beyond design-only agencies - we provide strategic consulting, AI integration, custom development, and end-to-end digital transformation. Get your Design + Development bundle, client project board access, and explore our resale opportunities."
+        keywords="Niorc Consulting, full-stack development, AI integration, strategic consulting, design development bundle, client project board, resale solutions, digital transformation, enterprise technology, consulting-first approach, custom development India"
         type="website"
       />
+      
+      {/* Optimized background effects */}
       <ParticleBackground />
       <MorphingBlobs />
       <ScrollAnimations />
+      
+      {/* Navigation with improved accessibility */}
       <Navigation />
+      
+      {/* Hero section with enhanced CTAs */}
       <Hero />
-      <div data-section="services" className="animate-on-scroll reveal">
-        <ServicesSection />
-      </div>
-      <div className="animate-on-scroll reveal">
-        <ClientBoard />
-      </div>
-      <div className="animate-on-scroll reveal">
-        <ResaleSection />
-      </div>
-      <div className="animate-on-scroll reveal">
-        <TestimonialsSlider />
-      </div>
-      <InternalLinks currentPage="/" />
-      <div className="animate-on-scroll reveal">
-        <LeadCapture />
-      </div>
+      
+      {/* Main content sections with proper spacing */}
+      <main>
+        <section id="services" className="animate-on-scroll reveal" aria-label="Our Services">
+          <ServicesSection />
+        </section>
+        
+        <section id="project-board" className="animate-on-scroll reveal" aria-label="Client Project Board">
+          <ClientBoard />
+        </section>
+        
+        <section id="resale" className="animate-on-scroll reveal" aria-label="Resale Solutions">
+          <ResaleSection />
+        </section>
+        
+        <section id="testimonials" className="animate-on-scroll reveal" aria-label="Client Testimonials">
+          <TestimonialsSlider />
+        </section>
+        
+        {/* Internal linking for SEO */}
+        <InternalLinks currentPage="/" />
+        
+        <section id="contact" className="animate-on-scroll reveal" aria-label="Get Started">
+          <LeadCapture />
+        </section>
+      </main>
+      
       <Footer />
       <VisitorCounter />
     </div>
