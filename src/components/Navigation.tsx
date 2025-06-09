@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -46,14 +45,14 @@ const Navigation = () => {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-700 transform-gpu ${
       scrolled 
         ? 'bg-black/95 backdrop-blur-xl border-b border-blue-500/20 shadow-2xl shadow-blue-500/10 py-2' 
-        : 'bg-black/80 backdrop-blur-sm border-b border-blue-900/20 py-4'
+        : 'bg-black/80 backdrop-blur-sm border-b border-blue-900/20 py-3'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-14">
           <Logo />
 
           {/* Desktop Navigation with improved spacing */}
-          <div className="hidden md:flex items-center space-x-10 lg:space-x-12">
+          <div className="hidden md:flex items-center space-x-8 lg:space-x-10">
             <NavLink to="/" isActive={isActive('/')}>
               Home
             </NavLink>
@@ -66,6 +65,14 @@ const Navigation = () => {
 
             <NavLink to="/about" isActive={isActive('/about')}>
               About
+            </NavLink>
+
+            <NavLink to="/case-studies" isActive={isActive('/case-studies')}>
+              Case Studies
+            </NavLink>
+
+            <NavLink to="/blog" isActive={isActive('/blog')}>
+              Blog
             </NavLink>
             
             <NavLink to="/contact" isActive={isActive('/contact')}>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';
@@ -19,9 +18,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white relative">
       <SEOHead 
-        title="Niorc Consulting - Full-Stack Development & AI Integration Services"
-        description="Transform your business with complete full-stack solutions. Beyond design-only agencies - we provide strategic consulting, AI integration, custom development, and end-to-end digital transformation. Get your Design + Development bundle, client project board access, and explore our resale opportunities."
-        keywords="Niorc Consulting, full-stack development, AI integration, strategic consulting, design development bundle, client project board, resale solutions, digital transformation, enterprise technology, consulting-first approach, custom development India"
+        title="Niorc Consulting - Complete Digital Transformation & Full-Stack Development Services"
+        description="Transform your business with Niorc Consulting's complete digital solutions. We provide strategic consulting, full-stack development, AI integration, enterprise mobility, and digital marketing services. Get your custom project board, design + development bundles, and explore white-label resale opportunities. Based in New Delhi, India, serving clients globally."
+        keywords="Niorc Consulting, digital transformation, full-stack development, AI integration, strategic consulting, enterprise mobility, product engineering, quality engineering, digital marketing, custom development, white-label solutions, project management, New Delhi India, global technology consulting"
         type="website"
       />
       

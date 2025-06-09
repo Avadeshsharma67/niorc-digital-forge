@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -17,28 +16,28 @@ import {
 const ResaleSection = () => {
   const resaleProducts = [
     {
-      icon: Smartphone,
-      title: 'EdVix Mobile Learning Platform',
-      description: 'Complete e-learning mobile app with admin dashboard, payment integration, and content management.',
+      icon: Globe,
+      title: 'Custom Web Applications',
+      description: 'Complete web application solutions with admin dashboard, user management, and API integration.',
       features: ['White-label ready', 'Full source code', 'Documentation included', 'Setup support'],
-      price: 'Starting at ₹2,99,999',
-      gradient: 'from-purple-500 to-pink-600',
+      price: 'Custom Quote',
+      gradient: 'from-blue-500 to-cyan-600',
       popular: true
     },
     {
       icon: ShoppingCart,
-      title: 'E-commerce Suite',
-      description: 'Full-featured online store with inventory management, payment gateway, and mobile app.',
-      features: ['Multi-vendor support', 'Payment gateway ready', 'Mobile app included', 'Admin panel'],
-      price: 'Starting at ₹4,99,999',
-      gradient: 'from-blue-500 to-cyan-600'
+      title: 'E-commerce Solutions',
+      description: 'Full-featured online store with inventory management, payment gateway, and mobile responsiveness.',
+      features: ['Multi-vendor support', 'Payment gateway ready', 'Mobile responsive', 'Admin panel'],
+      price: 'Custom Quote',
+      gradient: 'from-purple-500 to-pink-600'
     },
     {
-      icon: Globe,
-      title: 'Corporate Website Template',
-      description: 'Professional business website with CMS, contact forms, and SEO optimization.',
-      features: ['Fully customizable', 'SEO optimized', 'Contact integration', 'Fast deployment'],
-      price: 'Starting at ₹99,999',
+      icon: Smartphone,
+      title: 'Mobile App Solutions',
+      description: 'Cross-platform mobile applications with backend integration and real-time features.',
+      features: ['Cross-platform', 'Backend included', 'Real-time features', 'App store ready'],
+      price: 'Custom Quote',
       gradient: 'from-green-500 to-teal-600'
     }
   ];
@@ -52,7 +51,7 @@ const ResaleSection = () => {
     {
       icon: DollarSign,
       title: 'Higher Margins',
-      description: 'Sell complete solutions with 60-80% profit margins'
+      description: 'Sell complete solutions with competitive pricing'
     },
     {
       icon: Package,

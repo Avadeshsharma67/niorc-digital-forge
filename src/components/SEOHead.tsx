@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -11,9 +10,9 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({ 
-  title = "Niorc Consulting - Full-Stack Development & AI Integration Services",
-  description = "Complete digital solutions beyond design-only agencies. Strategic consulting + full-stack development + AI integration. Design + Development bundles, client project boards, and resale opportunities. Transform your business with end-to-end technology solutions.",
-  keywords = "Niorc Consulting, full-stack development, AI integration, strategic consulting, design development bundle, client project board, resale solutions, digital transformation, enterprise technology, consulting-first approach, custom development India, white-label solutions",
+  title = "Niorc Consulting - Complete Digital Transformation & Full-Stack Development Services",
+  description = "Transform your business with Niorc Consulting's complete digital solutions. Strategic consulting, full-stack development, AI integration, enterprise mobility, and digital marketing services. Custom project boards, design + development bundles, and white-label resale opportunities. Based in New Delhi, India, serving clients globally.",
+  keywords = "Niorc Consulting, digital transformation, full-stack development, AI integration, strategic consulting, enterprise mobility, product engineering, quality engineering, digital marketing, custom development, white-label solutions, project management, New Delhi India, global technology consulting, business automation, cloud solutions, mobile app development",
   image = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&h=630&q=80",
   type = "website"
 }: SEOHeadProps) => {
@@ -53,7 +52,11 @@ const SEOHead = ({
       { name: 'theme-color', content: '#2563eb' },
       { name: 'application-name', content: siteName },
       { name: 'apple-mobile-web-app-title', content: siteName },
-      { name: 'msapplication-TileColor', content: '#2563eb' }
+      { name: 'msapplication-TileColor', content: '#2563eb' },
+      { name: 'format-detection', content: 'telephone=no' },
+      { name: 'mobile-web-app-capable', content: 'yes' },
+      { name: 'apple-mobile-web-app-capable', content: 'yes' },
+      { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' }
     ];
 
     metaTags.forEach(({ name, content }) => {
@@ -86,7 +89,8 @@ const SEOHead = ({
       { property: 'og:locale', content: 'en_US' },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '630' },
-      { property: 'og:image:alt', content: 'Niorc Consulting - Full-Stack Development Services' }
+      { property: 'og:image:alt', content: 'Niorc Consulting - Complete Digital Solutions' },
+      { property: 'og:updated_time', content: new Date().toISOString() }
     ];
 
     ogTags.forEach(({ property, content }) => {
@@ -106,7 +110,8 @@ const SEOHead = ({
       { name: 'twitter:description', content: description },
       { name: 'twitter:image', content: image },
       { name: 'twitter:site', content: '@niorcconsulting' },
-      { name: 'twitter:creator', content: '@niorcconsulting' }
+      { name: 'twitter:creator', content: '@niorcconsulting' },
+      { name: 'twitter:image:alt', content: 'Niorc Consulting - Complete Digital Solutions' }
     ];
 
     twitterTags.forEach(({ name, content }) => {
@@ -119,7 +124,7 @@ const SEOHead = ({
       meta.setAttribute('content', content);
     });
 
-    // Add structured data for organization
+    // Add structured data for organization with enhanced details
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -134,29 +139,50 @@ const SEOHead = ({
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "Customer Service",
-        "email": "info@niorc.in.net"
+        "email": "hello@niorc.in.net",
+        "telephone": "+91 6367987334",
+        "availableLanguage": ["English", "Hindi"]
       },
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "IN",
-        "addressRegion": "Delhi"
+        "addressRegion": "Delhi",
+        "addressLocality": "New Delhi"
       },
+      "foundingDate": "2020",
+      "numberOfEmployees": "50+",
+      "slogan": "Complete Digital Solutions Beyond Design-Only Agencies",
       "offers": [
         {
           "@type": "Service",
-          "name": "Full-Stack Development",
-          "description": "Complete end-to-end development services with AI integration"
+          "name": "Digital Transformation",
+          "description": "Complete digital transformation with AI integration and process automation"
         },
         {
           "@type": "Service", 
+          "name": "Full-Stack Development",
+          "description": "End-to-end development from frontend to backend and database"
+        },
+        {
+          "@type": "Service",
           "name": "Strategic Consulting",
           "description": "Business analysis and technology strategy consulting"
         },
         {
           "@type": "Service",
-          "name": "Design + Development Bundle",
-          "description": "Complete solution from UI/UX design to full-stack development"
+          "name": "Enterprise Mobility",
+          "description": "Mobile solutions for enterprise productivity and workforce enablement"
         }
+      ],
+      "knowsAbout": [
+        "Digital Transformation",
+        "Full-Stack Development", 
+        "AI Integration",
+        "Enterprise Mobility",
+        "Product Engineering",
+        "Quality Engineering",
+        "Digital Marketing",
+        "Strategic Consulting"
       ]
     };
 

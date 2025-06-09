@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -49,7 +48,7 @@ const MobileMenu = ({ isOpen, isActive, onClose }: MobileMenuProps) => {
         <div className="px-4 py-3">
           <h3 className="text-white font-bold mb-3 flex items-center animate-fade-in">
             <span className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-2 animate-pulse"></span>
-            High-Demand Services
+            Core Services
           </h3>
           {highDemandServices.map((service, index) => (
             <Link
@@ -71,7 +70,7 @@ const MobileMenu = ({ isOpen, isActive, onClose }: MobileMenuProps) => {
         <div className="px-4 py-3">
           <h3 className="text-white font-bold mb-3 flex items-center animate-fade-in">
             <span className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mr-2 animate-pulse"></span>
-            Always-On Services
+            Ongoing Services
           </h3>
           {alwaysOnServices.map((service, index) => (
             <Link
@@ -100,6 +99,30 @@ const MobileMenu = ({ isOpen, isActive, onClose }: MobileMenuProps) => {
           }`}
         >
           About
+        </Link>
+
+        <Link 
+          to="/case-studies" 
+          onClick={onClose}
+          className={`block px-4 py-3 rounded-lg transition-all duration-300 font-medium transform hover:scale-105 ${
+            isActive('/case-studies') 
+              ? 'text-blue-400 bg-blue-500/10' 
+              : 'text-white hover:text-blue-400 hover:bg-blue-500/10'
+          }`}
+        >
+          Case Studies
+        </Link>
+
+        <Link 
+          to="/blog" 
+          onClick={onClose}
+          className={`block px-4 py-3 rounded-lg transition-all duration-300 font-medium transform hover:scale-105 ${
+            isActive('/blog') 
+              ? 'text-blue-400 bg-blue-500/10' 
+              : 'text-white hover:text-blue-400 hover:bg-blue-500/10'
+          }`}
+        >
+          Blog
         </Link>
         
         <Link 

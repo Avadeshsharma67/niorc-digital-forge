@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Bot, Code, Zap, Users, CheckCircle, Star } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-blue-50/30 to-gray-50 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-blue-50/30 to-gray-50 overflow-hidden pt-20">
       {/* Optimized background decoration with reduced complexity */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-300/20 to-purple-300/20 rounded-full blur-3xl animate-pulse"></div>
@@ -18,7 +17,7 @@ const Hero = () => {
           <div className="flex justify-center items-center flex-wrap gap-2 sm:gap-4 mb-6 sm:mb-8 animate-fade-in">
             <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full border border-gray-200 shadow-sm">
               <Star className="w-4 h-4 text-yellow-500 fill-current" />
-              <span className="text-xs sm:text-sm font-medium text-gray-700">Full-Stack Solutions</span>
+              <span className="text-xs sm:text-sm font-medium text-gray-700">Complete Solutions</span>
             </div>
             <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full border border-gray-200 shadow-sm">
               <Bot className="w-4 h-4 text-blue-500" />
