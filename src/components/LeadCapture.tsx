@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, ArrowRight } from 'lucide-react';
+import { Mail, ArrowRight, Users, Palette, Trello } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
@@ -54,16 +54,8 @@ const LeadCapture = () => {
     }
   };
 
-  const handleConsultationClick = () => {
-    navigate('/contact');
-  };
-
-  const handleDemoClick = () => {
-    navigate('/contact');
-  };
-
-  const handleQuoteClick = () => {
-    navigate('/contact');
+  const handleServiceClick = (service: string) => {
+    navigate(`/contact?service=${encodeURIComponent(service)}`);
   };
 
   return (
@@ -72,11 +64,11 @@ const LeadCapture = () => {
         <div className="text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Ready to Transform Your Business?
+              Ready for Complete Solutions?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Join 1000+ companies already leveraging our digital solutions. Get exclusive insights, 
-              industry trends, and special offers delivered to your inbox.
+              Join 1000+ companies who chose strategic consulting + full-stack development over design-only services. 
+              Get exclusive insights, project updates, and special bundle offers.
             </p>
 
             {!isSubmitted ? (
@@ -143,41 +135,58 @@ const LeadCapture = () => {
               </div>
             )}
 
-            {/* Additional CTAs */}
-            <div className="grid md:grid-cols-3 gap-6 mt-16">
+            {/* Enhanced CTAs with new services */}
+            <div className="grid md:grid-cols-4 gap-6 mt-16">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <h3 className="text-lg font-semibold text-white mb-2">Free Consultation</h3>
+                <Users className="w-8 h-8 text-white mb-3 mx-auto" />
+                <h3 className="text-lg font-semibold text-white mb-2">Strategic Consulting</h3>
                 <p className="text-blue-200 text-sm mb-4">
-                  Get a 30-minute strategy session with our experts
+                  Business analysis before any development
                 </p>
                 <button 
-                  onClick={handleConsultationClick}
+                  onClick={() => handleServiceClick('Strategic Consulting')}
                   className="text-white font-semibold hover:text-blue-200 transition-colors"
                 >
-                  Schedule Now →
+                  Start Strategy →
                 </button>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <h3 className="text-lg font-semibold text-white mb-2">Product Demo</h3>
+                <Palette className="w-8 h-8 text-white mb-3 mx-auto" />
+                <h3 className="text-lg font-semibold text-white mb-2">Design + Dev Bundle</h3>
                 <p className="text-blue-200 text-sm mb-4">
-                  See our solutions in action with a live demo
+                  Complete solution from concept to deployment
                 </p>
                 <button 
-                  onClick={handleDemoClick}
+                  onClick={() => handleServiceClick('Design + Development Bundle')}
                   className="text-white font-semibold hover:text-blue-200 transition-colors"
                 >
-                  Watch Demo →
+                  Get Bundle →
                 </button>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                <Trello className="w-8 h-8 text-white mb-3 mx-auto" />
+                <h3 className="text-lg font-semibold text-white mb-2">Project Board Access</h3>
+                <p className="text-blue-200 text-sm mb-4">
+                  Real-time project tracking and communication
+                </p>
+                <button 
+                  onClick={() => handleServiceClick('Client Project Board')}
+                  className="text-white font-semibold hover:text-blue-200 transition-colors"
+                >
+                  See Demo →
+                </button>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                <ArrowRight className="w-8 h-8 text-white mb-3 mx-auto" />
                 <h3 className="text-lg font-semibold text-white mb-2">Custom Quote</h3>
                 <p className="text-blue-200 text-sm mb-4">
-                  Get pricing tailored to your specific needs
+                  Pricing tailored to your specific needs
                 </p>
                 <button 
-                  onClick={handleQuoteClick}
+                  onClick={() => handleServiceClick('Custom Quote')}
                   className="text-white font-semibold hover:text-blue-200 transition-colors"
                 >
                   Get Quote →

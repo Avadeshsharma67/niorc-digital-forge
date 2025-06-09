@@ -3,6 +3,8 @@ import React from 'react';
 import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';
 import ServicesSection from '../components/ServicesSection';
+import ClientBoard from '../components/ClientBoard';
+import ResaleSection from '../components/ResaleSection';
 import TestimonialsSlider from '../components/TestimonialsSlider';
 import LeadCapture from '../components/LeadCapture';
 import Footer from '../components/Footer';
@@ -17,9 +19,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white relative">
       <SEOHead 
-        title="Niorc Consulting - Leading Digital Transformation & AI Automation Services in India"
-        description="Transform your business with Niorc Consulting's premium digital transformation, AI automation, and enterprise technology solutions. Expert consulting services for modern enterprises in Delhi, India."
-        keywords="Niorc Consulting, digital transformation Delhi, AI automation India, enterprise technology consulting, business digital solutions, technology consulting services Delhi, enterprise mobility solutions India, digital transformation company"
+        title="Niorc Consulting - Full-Stack Development & AI Integration Services | Strategic Consulting First"
+        description="Beyond design-only agencies. Complete full-stack solutions with AI integration, strategic consulting, and end-to-end development. Design + Development bundles, client project boards, and resale opportunities."
+        keywords="Niorc Consulting, full-stack development India, AI integration services, strategic consulting, design development bundle, client project board, white-label solutions, consulting-first approach, enterprise technology Delhi"
         type="website"
       />
       <ParticleBackground />
@@ -29,6 +31,12 @@ const Index = () => {
       <Hero />
       <div data-section="services" className="animate-on-scroll reveal">
         <ServicesSection />
+      </div>
+      <div className="animate-on-scroll reveal">
+        <ClientBoard />
+      </div>
+      <div className="animate-on-scroll reveal">
+        <ResaleSection />
       </div>
       <div className="animate-on-scroll reveal">
         <TestimonialsSlider />
