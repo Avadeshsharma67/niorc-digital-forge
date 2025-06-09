@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, CheckCircle, AlertCircle } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import SEOHead from '../components/SEOHead';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -43,28 +45,28 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      details: 'hello@niorc.com',
+      details: 'hello@niorc.in.net',
       description: 'Drop us a line anytime',
-      link: 'mailto:hello@niorc.com'
+      link: 'mailto:hello@niorc.in.net'
     },
     {
       icon: Phone,
       title: 'Call Us',
-      details: '+1 (555) 123-4567',
-      description: 'Mon-Fri from 8am to 5pm PST',
-      link: 'tel:+15551234567'
+      details: '+91 6367987334',
+      description: 'Mon-Fri from 8am to 5pm IST',
+      link: 'tel:+916367987334'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: 'San Francisco, CA',
+      details: 'New Delhi, India',
       description: 'Come say hello at our office',
       link: null
     },
     {
       icon: Clock,
       title: 'Business Hours',
-      details: 'Mon-Fri: 8am-5pm PST',
+      details: 'Mon-Fri: 8am-5pm IST',
       description: 'Weekend support available',
       link: null
     }
@@ -72,6 +74,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead 
+        title="Contact Niorc Consulting - Get in Touch for Digital Transformation"
+        description="Contact Niorc Consulting for expert digital transformation and AI automation services. Located in New Delhi, India. Email: hello@niorc.in.net | Phone: +91 6367987334"
+        keywords="contact Niorc Consulting, digital transformation contact, AI automation inquiry, technology consulting contact, New Delhi office"
+      />
       <Navigation />
       
       {/* Hero Section */}
@@ -219,7 +226,7 @@ const Contact = () => {
 
               {/* Additional Professional Touch */}
               <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">Why Choose Niorc?</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-3">Why Choose Niorc Consulting?</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
