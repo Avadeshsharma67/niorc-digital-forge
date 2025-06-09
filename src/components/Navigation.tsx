@@ -52,8 +52,8 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           <Logo />
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation with improved spacing */}
+          <div className="hidden md:flex items-center space-x-10 lg:space-x-12">
             <NavLink to="/" isActive={isActive('/')}>
               Home
             </NavLink>
@@ -74,7 +74,7 @@ const Navigation = () => {
             
             <button
               onClick={handleGetStartedClick}
-              className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 hover:from-blue-500 hover:via-blue-600 hover:to-cyan-500 text-white px-8 py-3 rounded-xl transition-all duration-500 font-bold shadow-lg hover:shadow-blue-500/30 transform hover:scale-105 overflow-hidden group"
+              className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 hover:from-blue-500 hover:via-blue-600 hover:to-cyan-500 text-white px-6 lg:px-8 py-2.5 lg:py-3 rounded-xl transition-all duration-500 font-bold shadow-lg hover:shadow-blue-500/30 transform hover:scale-105 overflow-hidden group text-sm lg:text-base"
             >
               <span className="relative z-10">Get Started</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
