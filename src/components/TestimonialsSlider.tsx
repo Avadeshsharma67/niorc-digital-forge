@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Star, Quote, CheckCircle2, Award, TrendingUp } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, Quote, CheckCircle2, Award, TrendingUp, MapPin, Calendar } from 'lucide-react';
 
 const TestimonialsSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -10,54 +9,82 @@ const TestimonialsSlider = () => {
 
   const testimonials = [
     {
-      name: 'Sarah Johnson',
-      position: 'CTO, TechCorp',
+      name: 'Rajesh Kumar',
+      position: 'CTO, TechCorp Solutions',
       company: 'TechCorp Solutions',
+      location: 'Mumbai, India',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+      rating: 5,
+      text: 'Niorc Consulting transformed our entire digital infrastructure with their AI automation solutions. The RPA implementation reduced our processing time by 80% and significantly improved operational efficiency. Their strategic consulting approach helped us identify bottlenecks we never knew existed.',
+      metrics: { improvement: '80%', category: 'Process Efficiency', timeline: '6 months' },
+      industry: 'Technology',
+      projectType: 'AI Automation & Digital Transformation',
+      featured: true
+    },
+    {
+      name: 'Priya Sharma',
+      position: 'CEO, InnovateLabs',
+      company: 'InnovateLabs',
+      location: 'Bangalore, India',
       image: 'https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=150&h=150&fit=crop&crop=face',
       rating: 5,
-      text: 'Niorc transformed our entire digital infrastructure. Their AI automation solutions reduced our processing time by 80% and significantly improved our operational efficiency.',
-      metrics: { improvement: '80%', category: 'Process Efficiency' },
-      industry: 'Technology'
+      text: 'The mobile app development team at Niorc exceeded our expectations. They delivered a scalable, user-friendly enterprise mobility solution that became the backbone of our operations. The project management transparency was exceptional with real-time updates.',
+      metrics: { improvement: '300%', category: 'User Engagement', timeline: '4 months' },
+      industry: 'Software',
+      projectType: 'Enterprise Mobility Solutions',
+      featured: true
     },
     {
       name: 'Michael Chen',
-      position: 'CEO, InnovateLabs',
-      company: 'InnovateLabs',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-      rating: 5,
-      text: 'The mobile app development team at Niorc exceeded our expectations. They delivered a scalable, user-friendly solution that has become the backbone of our business operations.',
-      metrics: { improvement: '300%', category: 'User Engagement' },
-      industry: 'Software'
-    },
-    {
-      name: 'Emily Rodriguez',
       position: 'Marketing Director, GrowthCo',
-      company: 'GrowthCo',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+      company: 'GrowthCo International',
+      location: 'Singapore',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
       rating: 5,
-      text: 'Their digital marketing strategies drove a 300% increase in our qualified leads. The team\'s analytical approach and trend insights are unmatched in the industry.',
-      metrics: { improvement: '300%', category: 'Lead Generation' },
-      industry: 'Marketing'
+      text: 'Their digital marketing strategies drove a 300% increase in qualified leads within 3 months. The combination of SEO optimization, paid advertising, and marketing automation delivered exceptional ROI. The team\'s analytical approach and trend insights are unmatched.',
+      metrics: { improvement: '300%', category: 'Lead Generation', timeline: '3 months' },
+      industry: 'Marketing',
+      projectType: 'Digital Marketing & Growth',
+      featured: false
     },
     {
       name: 'David Park',
-      position: 'VP of Engineering, DataFlow',
+      position: 'VP Engineering, DataFlow Systems',
       company: 'DataFlow Systems',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+      location: 'Seoul, South Korea',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
       rating: 5,
-      text: 'Niorc\'s cloud integration and API development services helped us scale from startup to enterprise. Their technical expertise is truly world-class.',
-      metrics: { improvement: '500%', category: 'Scalability' },
-      industry: 'Data & Analytics'
+      text: 'Niorc\'s full-stack development and cloud integration services helped us scale from startup to enterprise level. Their technical expertise in API development, database optimization, and cloud architecture is truly world-class. The quality engineering was impeccable.',
+      metrics: { improvement: '500%', category: 'Scalability', timeline: '8 months' },
+      industry: 'Data & Analytics',
+      projectType: 'Full-Stack Product Engineering',
+      featured: false
     },
     {
-      name: 'Lisa Thompson',
+      name: 'Sarah Johnson',
       position: 'COO, RetailMax',
-      company: 'RetailMax',
-      image: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=150&h=150&fit=crop&crop=face',
+      company: 'RetailMax Corporation',
+      location: 'London, UK',
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
       rating: 5,
-      text: 'The RPA solutions implemented by Niorc automated 70% of our manual processes. The ROI was visible within the first quarter of implementation.',
-      metrics: { improvement: '70%', category: 'Process Automation' },
-      industry: 'Retail'
+      text: 'The RPA and business process automation solutions implemented by Niorc automated 70% of our manual processes. The ROI was visible within the first quarter. Their strategic consulting helped us identify automation opportunities across all departments.',
+      metrics: { improvement: '70%', category: 'Process Automation', timeline: '5 months' },
+      industry: 'Retail',
+      projectType: 'Business Process Automation',
+      featured: false
+    },
+    {
+      name: 'Ahmed Al-Rashid',
+      position: 'Digital Director, Emirates Tech',
+      company: 'Emirates Tech Solutions',
+      location: 'Dubai, UAE',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+      rating: 5,
+      text: 'Outstanding digital transformation project! Niorc delivered a complete enterprise solution with AI integration, mobile apps, and cloud infrastructure. Their project management approach with transparent tracking made the entire process smooth and predictable.',
+      metrics: { improvement: '250%', category: 'Digital Efficiency', timeline: '10 months' },
+      industry: 'Enterprise',
+      projectType: 'Complete Digital Transformation',
+      featured: true
     }
   ];
 
@@ -108,25 +135,30 @@ const TestimonialsSlider = () => {
             </div>
           </div>
           <h2 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Success <span className="text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text">Stories</span>
+            Client <span className="text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text">Success Stories</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Discover how we've transformed businesses across industries, delivering measurable results and driving unprecedented growth through innovative digital solutions.
+            Discover how we've transformed 500+ businesses across industries, delivering measurable results 
+            and driving unprecedented growth through innovative digital solutions and strategic consulting.
           </p>
           
           {/* Success Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12 max-w-5xl mx-auto">
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-              <div className="text-3xl font-bold text-blue-400 mb-2">250+%</div>
-              <div className="text-gray-300 text-sm">Average ROI Increase</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-              <div className="text-3xl font-bold text-cyan-400 mb-2">98%</div>
-              <div className="text-gray-300 text-sm">Client Satisfaction Rate</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-              <div className="text-3xl font-bold text-purple-400 mb-2">50+</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">500+</div>
               <div className="text-gray-300 text-sm">Successful Projects</div>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+              <div className="text-3xl font-bold text-green-400 mb-2">98%</div>
+              <div className="text-gray-300 text-sm">Client Satisfaction</div>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+              <div className="text-3xl font-bold text-purple-400 mb-2">25+</div>
+              <div className="text-gray-300 text-sm">Countries Served</div>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+              <div className="text-3xl font-bold text-cyan-400 mb-2">250%</div>
+              <div className="text-gray-300 text-sm">Average ROI</div>
             </div>
           </div>
         </div>
@@ -134,7 +166,7 @@ const TestimonialsSlider = () => {
         <div className="relative">
           {/* Enhanced Main testimonial */}
           <div 
-            className="bg-gradient-to-br from-white via-white to-gray-50 rounded-3xl p-8 lg:p-16 shadow-2xl max-w-5xl mx-auto relative overflow-hidden"
+            className="bg-gradient-to-br from-white via-white to-gray-50 rounded-3xl p-8 lg:p-16 shadow-2xl max-w-6xl mx-auto relative overflow-hidden"
             style={{transform: 'perspective(1000px)'}}
           >
             {/* Enhanced decorative elements */}
@@ -142,11 +174,16 @@ const TestimonialsSlider = () => {
             <div className="absolute bottom-0 right-0 w-60 h-60 bg-gradient-to-r from-blue-100/20 to-cyan-100/20 rounded-full blur-2xl"></div>
             <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-purple-100/15 to-pink-100/15 rounded-full blur-xl"></div>
             
-            {/* Industry Badge */}
-            <div className="absolute top-8 left-8">
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
+            {/* Industry & Project Type Badge */}
+            <div className="absolute top-8 left-8 flex gap-3">
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-4 py-2 rounded-full text-sm font-bold">
                 {testimonials[currentSlide].industry}
               </span>
+              {testimonials[currentSlide].featured && (
+                <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-bold">
+                  Featured
+                </span>
+              )}
             </div>
             
             {/* Testimonial content with enhanced animations */}
@@ -157,10 +194,17 @@ const TestimonialsSlider = () => {
               }`}
             >
               {/* Enhanced stars */}
-              <div className="flex items-center justify-center mb-8 mt-8">
+              <div className="flex items-center justify-center mb-8 mt-12">
                 {[...Array(testimonials[currentSlide].rating)].map((_, i) => (
                   <Star key={i} className="w-7 h-7 text-yellow-400 fill-current animate-fade-in-scale mx-1" style={{ animationDelay: `${i * 0.1}s` }} />
                 ))}
+              </div>
+
+              {/* Project Type */}
+              <div className="text-center mb-6">
+                <span className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">
+                  {testimonials[currentSlide].projectType}
+                </span>
               </div>
 
               {/* Enhanced quote */}
@@ -171,11 +215,16 @@ const TestimonialsSlider = () => {
               {/* Metrics highlight */}
               <div className="flex justify-center mb-8">
                 <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-6 border border-blue-100">
-                  <div className="flex items-center space-x-4">
-                    <TrendingUp className="w-8 h-8 text-blue-600" />
-                    <div>
+                  <div className="flex items-center space-x-6">
+                    <div className="text-center">
+                      <TrendingUp className="w-8 h-8 text-blue-600 mx-auto mb-2" />
                       <div className="text-3xl font-bold text-blue-600">{testimonials[currentSlide].metrics.improvement}</div>
-                      <div className="text-gray-600 font-medium">{testimonials[currentSlide].metrics.category}</div>
+                      <div className="text-gray-600 font-medium text-sm">{testimonials[currentSlide].metrics.category}</div>
+                    </div>
+                    <div className="text-center">
+                      <Calendar className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                      <div className="text-2xl font-bold text-green-600">{testimonials[currentSlide].metrics.timeline}</div>
+                      <div className="text-gray-600 font-medium text-sm">Timeline</div>
                     </div>
                   </div>
                 </div>
@@ -200,8 +249,12 @@ const TestimonialsSlider = () => {
                   <div className="text-blue-600 font-semibold text-lg">
                     {testimonials[currentSlide].position}
                   </div>
-                  <div className="text-gray-500">
+                  <div className="text-gray-700 font-medium">
                     {testimonials[currentSlide].company}
+                  </div>
+                  <div className="flex items-center justify-center sm:justify-start mt-1">
+                    <MapPin className="w-4 h-4 text-gray-500 mr-1" />
+                    <span className="text-gray-500 text-sm">{testimonials[currentSlide].location}</span>
                   </div>
                 </div>
               </div>
@@ -241,40 +294,44 @@ const TestimonialsSlider = () => {
 
         {/* Enhanced client showcase */}
         <div className="mt-20 text-center">
-          <p className="text-gray-400 mb-10 text-lg font-medium">Trusted by industry leaders across multiple sectors</p>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
+          <p className="text-gray-400 mb-10 text-lg font-medium">Trusted by industry leaders across multiple sectors globally</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index} 
-                className="text-white text-lg font-semibold bg-white/8 backdrop-blur-sm p-6 rounded-xl transform hover:scale-105 transition-all duration-300 border border-white/10 animate-fade-in-scale hover:bg-white/12"
+                className="text-white text-sm font-semibold bg-white/8 backdrop-blur-sm p-4 rounded-xl transform hover:scale-105 transition-all duration-300 border border-white/10 animate-fade-in-scale hover:bg-white/12"
                 style={{ animationDelay: `${index * 0.1 + 0.5}s` }}
               >
                 <div className="text-center">
-                  <div className="text-sm text-gray-400 mb-1">{testimonial.industry}</div>
-                  <div className="font-bold">{testimonial.company}</div>
+                  <div className="text-xs text-gray-400 mb-1">{testimonial.industry}</div>
+                  <div className="font-bold text-xs">{testimonial.company}</div>
+                  <div className="text-xs text-gray-500 mt-1">{testimonial.location}</div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Call to Action */}
+        {/* Enhanced Call to Action */}
         <div className="mt-16 text-center">
           <div className="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/30 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4">Ready to Write Your Success Story?</h3>
-            <p className="text-gray-300 mb-6">Join our growing list of satisfied clients and transform your business today.</p>
+            <h3 className="text-3xl font-bold text-white mb-4">Ready to Write Your Success Story?</h3>
+            <p className="text-gray-300 mb-6 text-lg">
+              Join our growing list of 500+ satisfied clients and transform your business with proven digital solutions. 
+              Get a FREE consultation and see how we can help you achieve similar results.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="/case-studies"
+                href="/contact"
                 className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white px-8 py-3 rounded-xl transition-all duration-300 font-bold inline-flex items-center justify-center"
               >
-                View All Case Studies
+                🚀 Get FREE Consultation
               </a>
               <a 
-                href="/contact"
+                href="/case-studies"
                 className="border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white px-8 py-3 rounded-xl transition-all duration-300 font-bold"
               >
-                Start Your Project
+                📊 View All Success Stories
               </a>
             </div>
           </div>
