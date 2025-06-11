@@ -13,27 +13,32 @@ const InternalLinks = ({ currentPage, className = "" }: InternalLinksProps) => {
     { 
       path: '/services/digital-transformation', 
       title: 'Digital Transformation Services',
-      description: 'Modernize your business with cutting-edge digital solutions'
+      description: 'Modernize your business with cutting-edge digital solutions',
+      linkText: 'Explore Digital Transformation Solutions'
     },
     { 
       path: '/services/enterprise-mobility', 
       title: 'Enterprise Mobility Solutions',
-      description: 'Mobile-first approaches for modern workforce productivity'
+      description: 'Mobile-first approaches for modern workforce productivity',
+      linkText: 'Discover Enterprise Mobility Services'
     },
     { 
       path: '/services/product-engineering', 
       title: 'Product Engineering Excellence',
-      description: 'End-to-end product development and engineering services'
+      description: 'End-to-end product development and engineering services',
+      linkText: 'View Product Engineering Capabilities'
     },
     { 
       path: '/services/quality-engineering', 
       title: 'Quality Engineering & Testing',
-      description: 'Comprehensive QA and testing solutions for reliability'
+      description: 'Comprehensive QA and testing solutions for reliability',
+      linkText: 'Learn About Quality Engineering'
     },
     { 
       path: '/services/digital-marketing', 
       title: 'Digital Marketing Strategies',
-      description: 'Data-driven marketing solutions for growth acceleration'
+      description: 'Data-driven marketing solutions for growth acceleration',
+      linkText: 'Explore Digital Marketing Services'
     }
   ];
 
@@ -41,22 +46,26 @@ const InternalLinks = ({ currentPage, className = "" }: InternalLinksProps) => {
     { 
       path: '/about', 
       title: 'About Niorc Consulting',
-      description: 'Learn about our mission, values, and expertise'
+      description: 'Learn about our mission, values, and expertise',
+      linkText: 'Learn About Our Company'
     },
     { 
       path: '/case-studies', 
       title: 'Client Success Stories',
-      description: 'Real results from our digital transformation projects'
+      description: 'Real results from our digital transformation projects',
+      linkText: 'View Client Success Stories'
     },
     { 
       path: '/blog', 
       title: 'Technology Insights Blog',
-      description: 'Latest trends and insights in digital innovation'
+      description: 'Latest trends and insights in digital innovation',
+      linkText: 'Read Technology Insights'
     },
     { 
       path: '/contact', 
       title: 'Get in Touch',
-      description: 'Start your digital transformation journey today'
+      description: 'Start your digital transformation journey today',
+      linkText: 'Contact for Free Consultation'
     }
   ];
 
@@ -85,6 +94,7 @@ const InternalLinks = ({ currentPage, className = "" }: InternalLinksProps) => {
               key={link.path}
               to={link.path}
               className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:transform hover:-translate-y-1"
+              aria-label={link.linkText}
             >
               <div className="flex items-start justify-between mb-3">
                 <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
@@ -95,6 +105,7 @@ const InternalLinks = ({ currentPage, className = "" }: InternalLinksProps) => {
               <p className="text-gray-600 text-sm leading-relaxed">
                 {link.description}
               </p>
+              <span className="sr-only">{link.linkText}</span>
             </Link>
           ))}
         </div>

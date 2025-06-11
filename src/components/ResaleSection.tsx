@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -134,7 +135,7 @@ const ResaleSection = () => {
                 to="/contact?service=Resale Solutions"
                 className="block w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-center py-4 px-6 rounded-xl font-bold transition-all duration-300 transform hover:scale-105"
               >
-                Get Details
+                Get {product.title} Details & Pricing
               </Link>
             </div>
           ))}
@@ -152,7 +153,7 @@ const ResaleSection = () => {
               to="/contact?service=Resale Partnership"
               className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl"
             >
-              Become a Resale Partner
+              Start Resale Partnership Program
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
