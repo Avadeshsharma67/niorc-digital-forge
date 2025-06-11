@@ -1,19 +1,19 @@
-
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import Navigation from '../components/Navigation';
-import HeroOptimized from '../components/HeroOptimized';
-import ServicesSectionOptimized from '../components/ServicesSectionOptimized';
+import Hero from '../components/Hero';
+import ServicesSection from '../components/ServicesSection';
+import ClientBoard from '../components/ClientBoard';
+import ResaleSection from '../components/ResaleSection';
+import TestimonialsSlider from '../components/TestimonialsSlider';
+import LeadCapture from '../components/LeadCapture';
 import Footer from '../components/Footer';
 import VisitorCounter from '../components/VisitorCounter';
+import ParticleBackground from '../components/ParticleBackground';
+import MorphingBlobs from '../components/MorphingBlobs';
 import ScrollAnimations from '../components/ScrollAnimations';
 import SEOHead from '../components/SEOHead';
-
-// Lazy load non-critical components
-const ClientBoard = lazy(() => import('../components/ClientBoard'));
-const TestimonialsSlider = lazy(() => import('../components/TestimonialsSlider'));
-const LeadCapture = lazy(() => import('../components/LeadCapture'));
-const InternalLinks = lazy(() => import('../components/InternalLinks'));
-const AIChat = lazy(() => import('../components/AIChat'));
+import InternalLinks from '../components/InternalLinks';
+import AIChat from '../components/AIChat';
 
 const Index = () => {
   return (
@@ -25,47 +25,45 @@ const Index = () => {
         type="website"
       />
       
-      {/* Essential scroll animations */}
+      {/* Optimized background effects */}
+      <ParticleBackground />
+      <MorphingBlobs />
       <ScrollAnimations />
       
       {/* Navigation with improved accessibility */}
       <Navigation />
       
       {/* Hero section with enhanced CTAs */}
-      <HeroOptimized />
+      <Hero />
       
       {/* Main content sections with proper spacing and SEO optimization */}
       <main>
         <section id="services" className="animate-on-scroll reveal" aria-label="Digital Transformation Services">
-          <ServicesSectionOptimized />
+          <ServicesSection />
         </section>
         
-        <Suspense fallback={
-          <div className="h-96 flex items-center justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-          </div>
-        }>
-          <section id="project-board" className="animate-on-scroll reveal" aria-label="Transparent Project Management">
-            <ClientBoard />
-          </section>
-          
-          <section id="testimonials" className="animate-on-scroll reveal" aria-label="Client Success Stories">
-            <TestimonialsSlider />
-          </section>
-          
-          {/* Internal linking for SEO */}
-          <InternalLinks currentPage="/" />
-          
-          <section id="contact" className="animate-on-scroll reveal" aria-label="Get FREE Consultation">
-            <LeadCapture />
-          </section>
-        </Suspense>
+        <section id="project-board" className="animate-on-scroll reveal" aria-label="Transparent Project Management">
+          <ClientBoard />
+        </section>
+        
+        <section id="resale" className="animate-on-scroll reveal" aria-label="White-Label Solutions">
+          <ResaleSection />
+        </section>
+        
+        <section id="testimonials" className="animate-on-scroll reveal" aria-label="Client Success Stories">
+          <TestimonialsSlider />
+        </section>
+        
+        {/* Internal linking for SEO */}
+        <InternalLinks currentPage="/" />
+        
+        <section id="contact" className="animate-on-scroll reveal" aria-label="Get FREE Consultation">
+          <LeadCapture />
+        </section>
       </main>
       
-      <Suspense fallback={null}>
-        {/* Enhanced AI Chat Assistant */}
-        <AIChat />
-      </Suspense>
+      {/* Enhanced AI Chat Assistant */}
+      <AIChat />
       
       <Footer />
       <VisitorCounter />
