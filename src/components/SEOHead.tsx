@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -10,9 +11,9 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({ 
-  title = "Niorc Consulting - Complete Digital Transformation & Full-Stack Development Services",
-  description = "Transform your business with Niorc Consulting's complete digital solutions. Strategic consulting, full-stack development, AI integration, enterprise mobility, and digital marketing services. Custom project boards, design + development bundles, and white-label resale opportunities. Based in New Delhi, India, serving clients globally.",
-  keywords = "Niorc Consulting, digital transformation, full-stack development, AI integration, strategic consulting, enterprise mobility, product engineering, quality engineering, digital marketing, custom development, white-label solutions, project management, New Delhi India, global technology consulting, business automation, cloud solutions, mobile app development",
+  title = "Niorc Consulting - #1 Digital Transformation & AI Automation Company India | 500+ Successful Projects",
+  description = "🚀 Leading Digital Transformation Company in India with 500+ successful projects! Expert AI automation, full-stack development, enterprise mobility & strategic consulting. 98% client satisfaction. Get FREE consultation today! Serving 25+ countries globally.",
+  keywords = "digital transformation company India, AI automation services, full-stack development company, enterprise mobility solutions, digital marketing agency India, business automation, cloud solutions, mobile app development, web development services, strategic consulting, product engineering, quality engineering, New Delhi technology company, best digital transformation services, AI integration company, RPA automation, custom software development, enterprise solutions, digital innovation, technology consulting firm, Niorc Consulting",
   image = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&h=630&q=80",
   type = "website"
 }: SEOHeadProps) => {
@@ -21,9 +22,27 @@ const SEOHead = ({
   const siteName = "Niorc Consulting";
 
   useEffect(() => {
-    // Enhanced title with consistent branding
+    // Enhanced title with consistent branding - always include Niorc Consulting
     const fullTitle = title.includes('Niorc Consulting') ? title : `${title} | ${siteName}`;
     document.title = fullTitle;
+
+    // Update site name in head
+    let siteNameMeta = document.querySelector('meta[name="application-name"]');
+    if (!siteNameMeta) {
+      siteNameMeta = document.createElement('meta');
+      siteNameMeta.setAttribute('name', 'application-name');
+      document.head.appendChild(siteNameMeta);
+    }
+    siteNameMeta.setAttribute('content', siteName);
+
+    // Update Apple mobile web app title
+    let appleMeta = document.querySelector('meta[name="apple-mobile-web-app-title"]');
+    if (!appleMeta) {
+      appleMeta = document.createElement('meta');
+      appleMeta.setAttribute('name', 'apple-mobile-web-app-title');
+      document.head.appendChild(appleMeta);
+    }
+    appleMeta.setAttribute('content', siteName);
 
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]') || 
@@ -46,12 +65,11 @@ const SEOHead = ({
     // Enhanced meta tags for better SEO
     const metaTags = [
       { name: 'author', content: 'Niorc Consulting' },
+      { name: 'publisher', content: 'Niorc Consulting' },
       { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
-      { name: 'googlebot', content: 'index, follow' },
+      { name: 'googlebot', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
       { name: 'bingbot', content: 'index, follow' },
       { name: 'theme-color', content: '#2563eb' },
-      { name: 'application-name', content: siteName },
-      { name: 'apple-mobile-web-app-title', content: siteName },
       { name: 'msapplication-TileColor', content: '#2563eb' },
       { name: 'format-detection', content: 'telephone=no' },
       { name: 'mobile-web-app-capable', content: 'yes' },
@@ -78,7 +96,7 @@ const SEOHead = ({
     }
     canonical.setAttribute('href', currentUrl);
 
-    // Enhanced Open Graph tags
+    // Enhanced Open Graph tags with proper site name
     const ogTags = [
       { property: 'og:title', content: fullTitle },
       { property: 'og:description', content: description },
@@ -89,7 +107,7 @@ const SEOHead = ({
       { property: 'og:locale', content: 'en_US' },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '630' },
-      { property: 'og:image:alt', content: 'Niorc Consulting - Complete Digital Solutions' },
+      { property: 'og:image:alt', content: 'Niorc Consulting - Leading Digital Transformation & AI Automation Services' },
       { property: 'og:updated_time', content: new Date().toISOString() }
     ];
 
@@ -111,7 +129,7 @@ const SEOHead = ({
       { name: 'twitter:image', content: image },
       { name: 'twitter:site', content: '@niorcconsulting' },
       { name: 'twitter:creator', content: '@niorcconsulting' },
-      { name: 'twitter:image:alt', content: 'Niorc Consulting - Complete Digital Solutions' }
+      { name: 'twitter:image:alt', content: 'Niorc Consulting - Leading Digital Transformation & AI Automation Services' }
     ];
 
     twitterTags.forEach(({ name, content }) => {
@@ -124,64 +142,122 @@ const SEOHead = ({
       meta.setAttribute('content', content);
     });
 
-    // Add structured data for organization with enhanced details
+    // Enhanced structured data for better search results
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": siteName,
-      "description": description,
+      "name": "Niorc Consulting",
+      "alternateName": ["Niorc", "Niorc Digital", "Niorc Technologies"],
+      "description": "Leading digital transformation company specializing in AI automation, full-stack development, enterprise mobility, and digital marketing solutions. Serving 500+ clients globally with 98% satisfaction rate.",
       "url": "https://niorc.in.net",
-      "logo": "https://niorc.in.net/favicon.ico",
-      "sameAs": [
-        "https://linkedin.com/company/niorc-consulting",
-        "https://twitter.com/niorcconsulting"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Customer Service",
-        "email": "hello@niorc.in.net",
-        "telephone": "+91 6367987334",
-        "availableLanguage": ["English", "Hindi"]
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://niorc.in.net/favicon.ico",
+        "width": 64,
+        "height": 64
       },
+      "image": image,
+      "telephone": ["+91 6367987334", "+91 8764579775"],
+      "email": ["hello@niorc.in.net", "founder@niorc.in.net"],
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "IN",
+        "addressLocality": "New Delhi",
         "addressRegion": "Delhi",
-        "addressLocality": "New Delhi"
+        "addressCountry": "IN",
+        "postalCode": "110001"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.6139,
+        "longitude": 77.2090
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "India" },
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "Canada" },
+        { "@type": "Country", "name": "Australia" },
+        { "@type": "Country", "name": "Singapore" },
+        { "@type": "Country", "name": "UAE" }
+      ],
       "foundingDate": "2020",
       "numberOfEmployees": "50+",
       "slogan": "Complete Digital Solutions Beyond Design-Only Agencies",
-      "offers": [
-        {
-          "@type": "Service",
-          "name": "Digital Transformation",
-          "description": "Complete digital transformation with AI integration and process automation"
-        },
-        {
-          "@type": "Service", 
-          "name": "Full-Stack Development",
-          "description": "End-to-end development from frontend to backend and database"
-        },
-        {
-          "@type": "Service",
-          "name": "Strategic Consulting",
-          "description": "Business analysis and technology strategy consulting"
-        },
-        {
-          "@type": "Service",
-          "name": "Enterprise Mobility",
-          "description": "Mobile solutions for enterprise productivity and workforce enablement"
-        }
+      "brand": {
+        "@type": "Brand",
+        "name": "Niorc Consulting"
+      },
+      "sameAs": [
+        "https://linkedin.com/company/niorc-consulting",
+        "https://twitter.com/niorcconsulting",
+        "https://discord.gg/QFzNbDSmtH"
       ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Digital Transformation Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Digital Transformation",
+              "description": "Complete AI-powered business automation and digital transformation solutions",
+              "serviceType": "Digital Transformation"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Enterprise Mobility",
+              "description": "Custom mobile applications and enterprise mobility solutions",
+              "serviceType": "Enterprise Mobility"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Product Engineering",
+              "description": "End-to-end product development and engineering services",
+              "serviceType": "Product Engineering"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Quality Engineering",
+              "description": "Comprehensive QA and testing solutions for reliability",
+              "serviceType": "Quality Engineering"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Digital Marketing",
+              "description": "Data-driven marketing solutions for growth acceleration",
+              "serviceType": "Digital Marketing"
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "500",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
       "knowsAbout": [
         "Digital Transformation",
-        "Full-Stack Development", 
-        "AI Integration",
+        "AI Automation",
         "Enterprise Mobility",
         "Product Engineering",
         "Quality Engineering",
         "Digital Marketing",
+        "Full-Stack Development",
         "Strategic Consulting"
       ]
     };
@@ -193,6 +269,35 @@ const SEOHead = ({
       document.head.appendChild(jsonLd);
     }
     jsonLd.textContent = JSON.stringify(structuredData);
+
+    // Add breadcrumb structured data for services
+    const breadcrumbData = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://niorc.in.net"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://niorc.in.net/services"
+        }
+      ]
+    };
+
+    let breadcrumbScript = document.querySelector('script[data-type="breadcrumb"]');
+    if (!breadcrumbScript) {
+      breadcrumbScript = document.createElement('script');
+      breadcrumbScript.setAttribute('type', 'application/ld+json');
+      breadcrumbScript.setAttribute('data-type', 'breadcrumb');
+      document.head.appendChild(breadcrumbScript);
+    }
+    breadcrumbScript.textContent = JSON.stringify(breadcrumbData);
 
   }, [title, description, keywords, image, type, currentUrl]);
 
