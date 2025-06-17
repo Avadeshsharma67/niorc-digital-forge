@@ -1,3 +1,4 @@
+
 User-agent: *
 Allow: /
 Disallow: /private/
@@ -8,16 +9,16 @@ Disallow: /*?*utm_*
 Disallow: /*?*ref=*
 Disallow: /*?*fbclid=*
 
-# Specific bot permissions for better crawling
+# Specific bot permissions for optimal crawling
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
-Request-rate: 1/1s
+Request-rate: 10/1m
 
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
-Request-rate: 1/2s
+Request-rate: 8/1m
 
 User-agent: Slurp
 Allow: /
@@ -50,7 +51,7 @@ Allow: /
 User-agent: TelegramBot
 Allow: /
 
-# Block unwanted bots
+# Block SEO crawlers that don't provide value
 User-agent: AhrefsBot
 Disallow: /
 
@@ -63,11 +64,17 @@ Disallow: /
 User-agent: SemrushBot
 Disallow: /
 
-# Sitemap location
+User-agent: MegaIndex
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# Sitemap locations
 Sitemap: https://niorc.in.net/sitemap.xml
 
-# Crawl delay for general bots
-Crawl-delay: 2
-
-# Host directive
+# Host directive for preferred domain
 Host: https://niorc.in.net
+
+# Default crawl delay for unlisted bots
+Crawl-delay: 10

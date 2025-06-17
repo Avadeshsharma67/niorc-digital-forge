@@ -1,12 +1,13 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   
-  <!-- Main Pages -->
+  <!-- Main Pages with High Priority -->
   <url>
     <loc>https://niorc.in.net/</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -18,87 +19,86 @@
   
   <url>
     <loc>https://niorc.in.net/about</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/contact</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   
-  <!-- High-Priority Service Pages -->
+  <!-- Core Service Pages - Maximum Priority -->
   <url>
     <loc>https://niorc.in.net/services/digital-transformation</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.98</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/services/enterprise-mobility</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/services/product-engineering</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/services/quality-engineering</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/services/digital-marketing</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   
-  <!-- Always-On Services -->
   <url>
     <loc>https://niorc.in.net/services/content-marketing</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/services/social-media</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
-  <!-- Content & Marketing Pages -->
+  <!-- Content & Portfolio Pages -->
   <url>
     <loc>https://niorc.in.net/blog</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/case-studies</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/careers</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -106,64 +106,78 @@
   <!-- Legal & Compliance Pages -->
   <url>
     <loc>https://niorc.in.net/security</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/privacy</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/terms</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/cookies</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
-  <!-- Additional Landing Pages for SEO -->
+  <!-- SEO Landing Pages for Targeted Keywords -->
   <url>
     <loc>https://niorc.in.net/ai-automation-services</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/rpa-implementation</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/full-stack-development</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/mobile-app-development</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://niorc.in.net/cloud-solutions</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2024-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://niorc.in.net/digital-transformation-india</loc>
+    <lastmod>2024-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://niorc.in.net/technology-consulting-delhi</loc>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
