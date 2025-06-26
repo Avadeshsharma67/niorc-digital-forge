@@ -6,7 +6,6 @@ import ServicesSection from '../components/ServicesSection';
 import ClientBoard from '../components/ClientBoard';
 import ResaleSection from '../components/ResaleSection';
 import TestimonialsSlider from '../components/TestimonialsSlider';
-import ClientSuccessStories from '../components/ClientSuccessStories';
 import LeadCapture from '../components/LeadCapture';
 import Footer from '../components/Footer';
 import VisitorCounter from '../components/VisitorCounter';
@@ -42,10 +41,6 @@ const Index = () => {
       <main>
         <section id="services" className="animate-on-scroll reveal" aria-label="Digital Transformation Services">
           <ServicesSection />
-        </section>
-        
-        <section id="success-stories" className="animate-on-scroll reveal" aria-label="Client Success Stories">
-          <ClientSuccessStories />
         </section>
         
         <section id="project-board" className="animate-on-scroll reveal" aria-label="Transparent Project Management">
