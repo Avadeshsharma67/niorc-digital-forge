@@ -5,6 +5,7 @@ const ScrollAnimations = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
+    // Throttle and optimize the observer
     const observeElements = () => {
       const elements = document.querySelectorAll('.animate-on-scroll');
       
@@ -13,12 +14,14 @@ const ScrollAnimations = () => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add('active');
+              // Stop observing once activated for performance
+              observerRef.current?.unobserve(entry.target);
             }
           });
         },
         {
           threshold: 0.1,
-          rootMargin: '50px'
+          rootMargin: '100px'
         }
       );
 
@@ -27,8 +30,8 @@ const ScrollAnimations = () => {
       });
     };
 
-    // Wait for DOM to be ready
-    const timer = setTimeout(observeElements, 100);
+    // Reduced delay for faster initialization
+    const timer = setTimeout(observeElements, 50);
 
     return () => {
       clearTimeout(timer);
