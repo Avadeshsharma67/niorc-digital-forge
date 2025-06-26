@@ -52,51 +52,6 @@ const Hero = () => {
             <span className="text-blue-600 font-semibold"> Get FREE consultation today!</span>
           </p>
 
-          {/* Strategy Before Development Section - Enhanced for Mobile */}
-          <div className="mb-6 sm:mb-8 md:mb-12 animate-fade-in px-2 sm:px-4" style={{ animationDelay: '0.45s' }}>
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-3 sm:p-4 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-blue-200 shadow-lg max-w-4xl mx-auto">
-              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 md:mb-6">
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Strategy Before Development
-                </span>
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 text-left">
-                <div className="space-y-2 sm:space-y-3">
-                  <div className="flex items-start gap-2 sm:gap-3">
-                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-gray-900 text-xs sm:text-sm md:text-base">Business Analysis First</h3>
-                      <p className="text-gray-600 text-xs sm:text-sm">We analyze your business needs before writing a single line of code</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2 sm:gap-3">
-                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-gray-900 text-xs sm:text-sm md:text-base">ROI-Focused Solutions</h3>
-                      <p className="text-gray-600 text-xs sm:text-sm">Every feature is designed to maximize your return on investment</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-2 sm:space-y-3">
-                  <div className="flex items-start gap-2 sm:gap-3">
-                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-gray-900 text-xs sm:text-sm md:text-base">Scalable Architecture</h3>
-                      <p className="text-gray-600 text-xs sm:text-sm">Built to grow with your business from day one</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2 sm:gap-3">
-                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-gray-900 text-xs sm:text-sm md:text-base">Future-Proof Technology</h3>
-                      <p className="text-gray-600 text-xs sm:text-sm">Using latest tech stack that evolves with market trends</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Enhanced social proof */}
           <div className="flex justify-center items-center flex-wrap gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8 animate-fade-in px-2" style={{ animationDelay: '0.5s' }}>
             <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-600">

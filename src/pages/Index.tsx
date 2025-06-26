@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';
@@ -5,6 +6,7 @@ import ServicesSection from '../components/ServicesSection';
 import ClientBoard from '../components/ClientBoard';
 import ResaleSection from '../components/ResaleSection';
 import TestimonialsSlider from '../components/TestimonialsSlider';
+import ClientSuccessStories from '../components/ClientSuccessStories';
 import LeadCapture from '../components/LeadCapture';
 import Footer from '../components/Footer';
 import VisitorCounter from '../components/VisitorCounter';
@@ -42,6 +44,10 @@ const Index = () => {
           <ServicesSection />
         </section>
         
+        <section id="success-stories" className="animate-on-scroll reveal" aria-label="Client Success Stories">
+          <ClientSuccessStories />
+        </section>
+        
         <section id="project-board" className="animate-on-scroll reveal" aria-label="Transparent Project Management">
           <ClientBoard />
         </section>
@@ -50,7 +56,7 @@ const Index = () => {
           <ResaleSection />
         </section>
         
-        <section id="testimonials" className="animate-on-scroll reveal" aria-label="Client Success Stories">
+        <section id="testimonials" className="animate-on-scroll reveal" aria-label="Client Testimonials">
           <TestimonialsSlider />
         </section>
         
